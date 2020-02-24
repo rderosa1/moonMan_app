@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const databaseName = 'itemsTestDatabase'
 const Item = require('../models/item')
 
-beforeAll(async () => {
+beforeAll(async (done) => {
     const MONGODB_URI = `mongodb://127.0.0.1/${databaseName}`
     await mongoose.connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
     const faker = require('faker')
@@ -25,6 +25,7 @@ beforeAll(async () => {
     }
 
     run()
+    done()
 })
 
 let item
@@ -75,7 +76,8 @@ describe('Items API', () => {
     })
 })
 
-afterAll(async () => {
+afterAll(async (done) => {
     // await Item.drop()
     await mongoose.connection.close()
+    done()
 })

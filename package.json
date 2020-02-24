@@ -1,16 +1,16 @@
 {
-  "name": "mongodb-express-react-authentication",
+  "name": "piii",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest tests --detectOpenHandles",
+    "test": "jest tests --detectOpenHandles --forceExit --testTimeout=10000",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.generalassemb.ly/bruno/mongodb-express-react-authentication"
+    "url": "https://github.com/brunopgalvao/piii"
   },
   "jest": {
     "testEnvironment": "node"
@@ -32,10 +32,10 @@
     "morgan": "^1.9.1",
     "node-sass": "^4.13.1",
     "react-bootstrap": "^1.0.0-beta.16",
-    "react-router-dom": "^5.1.2",
-    "supertest": "^4.0.2"
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   }
 }
