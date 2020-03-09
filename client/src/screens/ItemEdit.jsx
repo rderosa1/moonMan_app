@@ -44,6 +44,7 @@ class ItemEdit extends Component {
     render() {
         const { item, updated } = this.state
         const { handleChange, handleSubmit } = this
+        const { history } = this.props
 
         if (updated) {
             return <Redirect to={`/items/${this.props.match.params.id}`} />
@@ -52,6 +53,7 @@ class ItemEdit extends Component {
         return (
             <>
                 <ItemForm
+                    history={history}
                     item={item}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
