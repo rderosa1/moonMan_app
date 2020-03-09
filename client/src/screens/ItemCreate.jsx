@@ -27,10 +27,10 @@ class ItemCreate extends Component {
 
     handleSubmit = async event => {
         event.preventDefault()
-
+        
         const res = await createItem(this.state.item)
         if (res.status === 201) {
-            this.props.addItem(res.data.item)
+            this.props.addItem(res.data)
             this.setState({ 
                 createdItem: res.data 
             })
