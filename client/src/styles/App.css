@@ -24,6 +24,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
 }
 
 .navbar .nav .links a,
@@ -335,3 +337,4 @@ button {
   width: 80%;
   margin: 4em auto;
 }
+
