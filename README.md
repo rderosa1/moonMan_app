@@ -18,8 +18,7 @@ With the newly redesigned moonMan app, use the interactive and intuitive interfa
 
 
 ## Colors
-![Image of color palette]
-<img src="color-palette.png">
+<img src="https://github.com/marymacmurray/done4today/blob/develop/color-palette.png">
 
 ## Wireframes
 
