@@ -18,9 +18,17 @@ With the newly redesigned moonMan app, use the interactive and intuitive interfa
 
 
 ## Colors
+![Image of color palette]
 <img src="color-palette.png">
 
 ## Wireframes
+![Image of wireframe]
+https://github.com/marymacmurray/done4today/blob/develop/mobile-mockup2.png
+
+![Image of wireframe]
+(https://github.com/marymacmurray/done4today/blob/develop/desktop-mockup.png)
+
+
 
 #### Mobile 
 <img src="mobile-mockup2.png">
