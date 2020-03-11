@@ -53,7 +53,7 @@ class Items extends React.Component {
     console.log('submitted')
     if (items) {
       const result = items.filter(item => {
-        const title = item.title
+        const title = item.title.toLowerCase()
         const { search } = this.state
         return title.includes(search.toLowerCase())
       })
@@ -64,7 +64,7 @@ class Items extends React.Component {
       })
     }
   }
-    
+
 
   render() {
     const { triedsearch, searchresult } = this.state
