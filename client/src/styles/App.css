@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,500,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,500,700&display=swap");
+
+html {
+  margin: 0;
+  height: 100vh;
+}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat';
-  overflow: hidden;
+  font-family: "Montserrat";
+  overflow: scroll;
   height: 100%;
+  height: 100vh;
 }
 
 button {
@@ -18,22 +24,23 @@ button {
 }
 
 .navbar {
-  background: #0097a7;
   height: 4em;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
 }
 
-.navbar .nav .links a,
+ .navbar .nav .links a,
 .navbar span {
   margin: 0 1em;
   color: #f8f8f8;
   text-decoration: none;
   font-size: 1.1rem;
   transition: all 0.4s ease;
-}
+} 
 
 .navbar .nav .links a:hover {
   color: #ffccbc;
@@ -42,6 +49,17 @@ button {
 .navbar .nav {
   display: flex;
   transition: all 0.4s ease;
+}
+
+.navbar-logged-in {
+  color: black;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  position: sticky;
+  top: 0;
 }
 
 .container {
@@ -199,6 +217,13 @@ button {
   display: flex;
   flex-direction: column;
   min-width: 300px;
+  transition-property: background, border-radius;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+.item:hover {
+  background:grey;
+  border-radius: 50%;
 }
 
 .item .buttons {
@@ -220,19 +245,23 @@ button {
   transition: all 0.4s ease;
   width: auto;
   align-self: flex-start;
+  /* transition-timing-function: ease-in; */
 }
 
 .item a:hover {
   opacity: 0.5;
+  /* border-radius: 50%;
+  transform: rotateY(180deg); */
 }
 
 .item a::before {
-  content: '<-';
+  content: "<-";
 }
 
 .item-container .item {
   min-width: 200px;
   min-height: 100px;
+  background-color: white;
 }
 
 .item-container .item button {
@@ -326,12 +355,48 @@ button {
 .landing .container {
   text-align: center;
 }
-
-.landing .main .item-container {
+/*  */
+.main .item-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2em;
   grid-template-rows: auto;
   width: 80%;
   margin: 4em auto;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+.container-landing {
+  background-image: url("https://i.imgur.com/R6RIwtQh.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* .aesthetic {
+  background-size: cover;
+  width: 100%;
+  height: 100%
+} */
+.main {
+  background-color: white;
+
+}
+.showcase {
+  text-align: center;
+  position: relative;
+  animation: heading;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes heading {
+  0% {top: -50px}
+  100% {top: 200px}
+
 }
