@@ -3,15 +3,17 @@ const Item = require('../models/item')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-const faker = require('faker')
+// const faker = require('faker')
 
 const main = async () => {
-    const items = [...Array(100)].map(item => (
-        {
-            title: faker.lorem.word(),
-            link: faker.lorem.sentence()
-        }
-    ))
+    // const items = [...Array(100)].map(item => (
+ 
+
+    const items = [
+        {title: "shoe", link: "ricoderosa@yaho.com"},
+        {title: "bike", link: "rgsdhsdha@yaho.com"},
+        
+    ]
 
     await Item.insertMany(items)
     console.log("Created items!")
