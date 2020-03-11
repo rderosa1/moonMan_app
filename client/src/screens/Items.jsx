@@ -57,7 +57,7 @@ class Items extends React.Component {
         const { search } = this.state
         return title.includes(search.toLowerCase())
       })
-
+      
       this.setState({
         triedsearch: true,
         searchresult: result
