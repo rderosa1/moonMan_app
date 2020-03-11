@@ -52,7 +52,7 @@ export default class Container extends Component {
   render() {
     const { user, items } = this.state
     return (
-      <>
+      <div className="container-landing">
         <Header user={user} />
         <main className="container">
           <Routes
@@ -65,7 +65,7 @@ export default class Container extends Component {
             clearUser={this.clearUser}
           />
         </main>
-      </>
+      </div>
     )
   }
 }
