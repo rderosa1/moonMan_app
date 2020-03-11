@@ -23,7 +23,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar>
+  <Navbar user={user}>
     {user && <span className="navbar-text">Welcome, {user.email}</span>}
     <div className="nav">
       {alwaysOptions}
