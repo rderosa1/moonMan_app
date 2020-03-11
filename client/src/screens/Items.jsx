@@ -64,7 +64,7 @@ export default function Items(props) {
           //handleSubmit could filter.
           >search</button>
         </form>
-        <h1>searched items</h1>
+        <h2>searched items</h2>
         {!items ? <h3>No Items at this time.</h3> : null}
         <div className="item-container">{renderItems()}</div>
       </Layout>

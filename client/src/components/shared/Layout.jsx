@@ -8,7 +8,7 @@ const Layout = (props) => (
         <div className='content'>
             <Nav />
             <div className='main'>
-                <h1>Items App</h1>
+                <h2>Items App</h2>
                 {props.children}
             </div>
         </div>
