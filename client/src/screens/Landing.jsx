@@ -7,5 +7,9 @@ const Landing = (props) => (
     {/* <Items {...props} />    */}
     {/* <img className="aesthetic" src="https://i.imgur.com/R6RIwtQh.jpg" /> */}
   </div>
+  <div>
+    <h1 className="showcase">moonMen</h1>
+       {/* <Items {...props} />    */}
+    </div>
 )
 export default Landing

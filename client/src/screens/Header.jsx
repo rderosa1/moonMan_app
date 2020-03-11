@@ -23,13 +23,13 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar>
-    {user && <span className="navbar-text">Welcome, {user.email}</span>}
-    <div className="nav">
-      {alwaysOptions}
-      {user ? authenticatedOptions : unauthenticatedOptions}
-    </div>
-  </Navbar>
+  <Navbar user={user}>
+        {user && <span className="navbar-text">Welcome, {user.email}</span>}
+        <div className="nav">
+            {alwaysOptions}
+            {user ? authenticatedOptions : unauthenticatedOptions}
+        </div>
+    </Navbar>
 )
 
 export default Header
