@@ -5,22 +5,22 @@ const JwtToken = localStorage.getItem('token') || null
 let apiUrl
 
 const apiUrls = {
-    production: 'https://protozoa-moonbase.herokuapp.com/api',
-    development: 'http://localhost:3000/api'
+  production: 'https://protozoa-moonbase.herokuapp.com/api',
+  development: 'http://localhost:3000/api'
 }
 
 if (window.location.hostname === 'localhost') {
-    apiUrl = apiUrls.development
+  apiUrl = apiUrls.development
 } else {
-    apiUrl = apiUrls.production
+  apiUrl = apiUrls.production
 }
 
 const api = Axios.create({
-    baseURL: apiUrl,
-    headers: {
-        Authorization: `Bearer ${JwtToken}`,
-        'Access-Control-Allow-Origin': '*'
-    }
+  baseURL: apiUrl,
+  headers: {
+    Authorization: `Bearer ${JwtToken}`,
+    'Access-Control-Allow-Origin': '*'
+  }
 })
 
 export default api
