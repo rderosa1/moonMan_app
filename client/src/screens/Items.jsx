@@ -54,7 +54,8 @@ class Items extends React.Component {
 
       const result = items.filter(item => {
         const title = item.title
-        return title.includes(this.state.search)
+        const { search } = this.state
+        return title.includes(search.toLowerCase())
       })
 
       this.setState({
@@ -69,19 +70,19 @@ class Items extends React.Component {
     if (searchresult.length > 0) {
       return (
         <Layout>
-        <div className="search-page">
-          {this.state.searchresult.map((result) => {
-            return (
-              <div className="search-result">
-                <h1>{result.title}</h1>
-                <h2>{result.link}</h2>
-                {this.renderButton(result._id)}
-              </div>
-            )
-          })}
+          <div className="search-page">
+            {this.state.searchresult.map((result) => {
+              return (
+                <div className="search-result">
+                  <h1>{result.title}</h1>
+                  <h2>{result.link}</h2>
+                  {this.renderButton(result._id)}
+                </div>
+              )
+            })}
 
           </div>
-          </Layout>
+        </Layout>
       )
     }
     else {
