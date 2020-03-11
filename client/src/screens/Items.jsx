@@ -3,6 +3,7 @@ import Layout from '../components/shared/Layout'
 import { getItemById, updateItem } from '../services/items'
 
 export default function Items(props) {
+  console.log(props)
   const { history, match, user, items } = props
   const renderButton = id => {
     if (user) {
@@ -34,7 +35,7 @@ export default function Items(props) {
   const handleSubmit = event => {
     event.preventDefault()
     if (items) {
-      
+
       return items.filter(item => {
         return (
           <div>
@@ -43,7 +44,7 @@ export default function Items(props) {
           </div>
         )
       })
-      
+
     }
   }
 
