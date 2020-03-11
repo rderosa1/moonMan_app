@@ -78,6 +78,7 @@ class Items extends React.Component {
     console.log('submitted')
     if (items) {
 
+      return items.filter(item => {
       const result = items.filter(item => {
         return item.title === this.state.search
       })
