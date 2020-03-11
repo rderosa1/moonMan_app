@@ -21,6 +21,7 @@ export default function Items(props) {
                 return (
                     <div className="item" key={item._id}>
                         <h4>{item.title}</h4>
+                            <h5>Add to WishList</h5>
                         {renderButton(item._id)}
                     </div>
                 )
@@ -33,9 +34,10 @@ export default function Items(props) {
     if (user) {
         return (
             <Layout>
-                <h4>Items</h4>
+                <h4>Items here</h4>
                 {!items ? <h3>No Items at this time.</h3> : null}
-                <div className="item-container">{renderItems()}</div>
+                <div className="item-container">{renderItems()}
+                </div>
             </Layout>
         )
     } else {
