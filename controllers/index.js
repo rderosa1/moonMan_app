@@ -81,12 +81,21 @@ const getAllItems = async (req, res) => {
     }
 }
 
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find()
+        return res.status(200).json({ users })
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 const getItemById = async (req, res) => {
     try {
         const { id } = req.params
         const item = await Item.findById(id)
         if (item) {
-            return res.status(200).json({ item })
+        return res.status(200).json({ item })
         }
         return res.status(404).send('Item with the specified ID does not exists')
     } catch (error) {
@@ -122,7 +131,43 @@ const deleteItem = async (req, res) => {
     } catch (error) {
         return res.status(500).send(error.message);
     }
+
+
 }
+
+const getUserById = async (req, res) => {
+    try {
+        const id = req.params.id
+        const user = await User.findById(id)
+        if (user) {
+            return res.status(200).json({ user })
+        }
+    }
+    catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
+const getItemsFromUser = async (req, res) => {
+    try {
+        const id = req.params.id
+        const user = await User.findById(id)
+        const itemHelper=async(id)=>{
+            return await Item.findById(id)
+        }
+        if (user.items.length>0) {
+            const items =await Promise.all(user.items.map((item)=>{
+                return itemHelper(item)
+            }))
+            console.log(items)
+        return res.status(200).json( {items} )
+    }
+    }
+    catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 
 module.exports = {
     signUp,
@@ -130,7 +175,10 @@ module.exports = {
     changePassword,
     createItem,
     getAllItems,
+    getAllUsers,
     getItemById,
     updateItem,
-    deleteItem
+    deleteItem,
+    getUserById,
+    getItemsFromUser
 }
