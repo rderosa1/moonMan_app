@@ -389,13 +389,13 @@ h2 {
   justify-content: center;
 }
 .container-landing {
-  background-image: url("https://i.imgur.com/R6RIwtQh.jpg");
+  background: url("https://i.imgur.com/R6RIwtQh.jpg") no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
-  height: 100%;
   margin: 0;
-  background-position: center;
-  background-repeat: no-repeat;
+   /* background-position: center; */
+  /* background-repeat: no-repeat !important;
+  background-position: 50% 50%; */
 }
 
 .main {
@@ -406,7 +406,7 @@ h2 {
   font-family: "Monoton", cursive;
   font-size: 70px;
   text-align: center;
-  position: relative;
+  position: sticky;
   animation: heading;
   animation-duration: 4s;
   animation-fill-mode: forwards;
