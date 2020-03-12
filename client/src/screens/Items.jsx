@@ -1,13 +1,13 @@
 import React from 'react'
 import Layout from '../components/shared/Layout'
-import { getItems, getItemById, updateItem } from '../services/items'
 
 class Items extends React.Component {
   constructor() {
     super()
     this.state = {
+      triedsearch: false,
       search: '',
-      searchresult: null
+      searchresult: []
     }
   }
 
@@ -47,6 +47,7 @@ class Items extends React.Component {
   }
 
   handleSubmit = (event) => {
+
     event.preventDefault()
     const { items } = this.props
     console.log('submitted')
@@ -56,6 +57,7 @@ class Items extends React.Component {
         const { search } = this.state
         return title.includes(search.toLowerCase())
       })
+      
       this.setState({
         triedsearch: true,
         searchresult: result
@@ -63,23 +65,25 @@ class Items extends React.Component {
     }
   }
 
+
   render() {
-    // const { history, match, user, items } = props
-    const { searchresult } = this.state
-    if (searchresult) {
+    const { triedsearch, searchresult } = this.state
+    if (searchresult.length > 0) {
       return (
-        <div>
-          {this.state.searchresult.map((result) => {
-            return(
-              <div>
-                <h1>{result.title}</h1>
-                <h2>{result.link}</h2>
-                {this.renderButton(result._id)}
-              </div>
-            )
-          })}
-      
-        </div>
+        <Layout>
+          <div className="search-page">
+            {this.state.searchresult.map((result) => {
+              return (
+                <div className="search-result">
+                  <h1>{result.title}</h1>
+                  <h2>{result.link}</h2>
+                  {this.renderButton(result._id)}
+                </div>
+              )
+            })}
+
+          </div>
+        </Layout>
       )
     }
     else {
@@ -92,18 +96,19 @@ class Items extends React.Component {
               <input className="input"
                 type="text"
                 placeholder="search by title"
-                // value={this.state.search}
                 onChange={this.handleChange}
               />
               <button
                 type="submit"
               >search</button>
             </form>
+            {triedsearch && <p>No search results found.</p>}
             {!items ? <h3>No Items at this time.</h3> : null}
             <div className="item-container">{this.renderItems()}</div>
           </Layout >
         )
-      } else
+      }
+      else
         return (
           <div className="landing">
             <h2>Welcome to the Items App!</h2>
