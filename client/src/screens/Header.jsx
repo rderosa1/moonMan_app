@@ -3,15 +3,13 @@ import { NavLink } from "react-router-dom";
 import Navbar from "../components/shared/Navbar.jsx";
 
 const authenticatedOptions = (
-  <div className="done-navGroup">
-    {/* <div className="links"> */}
-     <div className="nuissance">
+  <>
       <NavLink className='navLink' to="/change-password">Change Password</NavLink>
-      </div> 
+
     <NavLink className="navLink" to="/sign-out">
       Sign Out
     </NavLink>
-  </div>
+  </>
 );
 
 const unauthenticatedOptions = (

@@ -422,9 +422,11 @@ h1 {
 @keyframes heading {
   0% {
     top: -150px;
+    opacity: 0;
   }
   100% {
     top: 300px;
+    opacity: 1;
   }
 }
 
@@ -557,15 +559,22 @@ a {
     margin: 4em auto;
   }
 
-  .done-navGroup {
+  .navGroup {
     display: flex;
   }
+
   .nav {
     display: flex;
+    
   }
   .navbar-text {
     color: white;
     font-size: 10px;
-    width: 10%;
+    width: 15%;
+  }
+  .navLink {
+    display: flex;
+    justify-content: space-around;
+    margin: 0; 
   }
 }
