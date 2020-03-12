@@ -7,6 +7,7 @@ const User = new Schema(
     email: { type: String, required: true },
     password_digest: { type: String, required: true },
     items: [{ type: Schema.Types.ObjectId, ref: 'items' }]
+
   },
   { timestamps: true }
 )
