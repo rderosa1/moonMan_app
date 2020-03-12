@@ -10,11 +10,13 @@ class ItemEdit extends Component {
     this.state = {
       item: {
         title: '',
-        link: ''
+        description: ''
       },
       updated: false
     }
   }
+
+
 
   async componentDidMount() {
     try {

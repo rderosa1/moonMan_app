@@ -1,29 +1,26 @@
 const db = require('../db')
 const User = require('../models/user')
-const Item = require('../models/item')
-
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-// const faker = require('faker')
+const faker = require('faker')
 
 const main = async () => {
-    const bike=await Item.find({title:'bike'})
-    const shoe=await Item.find({title:'shoe'})
-    console.log(bike)
-    
-    const users = [
-        {username: "rico", email: "ricoderosa@yaho.com", password_digest: "password", items: [bike[0]._id, shoe[0]._id]},
-        {username: "elmo", email: "rgsdhsdha@yaho.com", password_digest: "pass"},
-        
-    ]
-    console.log(users)
-    await User.insertMany(users)
-    console.log("Created users!")
+  const users = [...Array(100)].map(user => (
+    {
+      username: faker.name.firstName(),
+      email: faker.internet.email(),
+      password_digest: faker.random.uuid(),
+      items: {}
+    }
+  ))
+
+  await User.insertMany(users)
+  console.log("Created users!")
 }
 const run = async () => {
-    await main()
-    db.close()
+  await main()
+  db.close()
 }
 
 run()

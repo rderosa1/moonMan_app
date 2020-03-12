@@ -6,7 +6,7 @@ const Ship = new Schema(
     _id: "users_session_id",
     status: 'active',
     quantity: 0,
-    products: []
+    items: []
   },
   { timestamps: true }
 )
