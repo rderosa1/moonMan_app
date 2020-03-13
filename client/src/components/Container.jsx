@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getItems } from "../services/items";
 import Routes from "../routes";
 import Header from "../screens/Header";
+import { verifyToken } from '../services/auth'
 
 export default class Container extends Component {
   constructor(props) {
@@ -9,17 +10,25 @@ export default class Container extends Component {
     this.state = {
       user: null,
       items: []
+      // isLoggedIn: false
     };
   }
 
   async componentDidMount() {
+    // const user = await verifyToken();
+    // if (user) {
     try {
       const items = await getItems();
-      this.setState({ items });
-    } catch (err) {
+      this.setState({
+        items
+        //isLoggedIn: true
+      });
+    }
+    catch (err) {
       console.error(err);
     }
   }
+
 
   addItem = item =>
     this.setState({
@@ -52,9 +61,13 @@ export default class Container extends Component {
 
   setUser = user => this.setState({ user });
 
+  //verifyUser = user => (localStorage.getItem('token')) ? this.setState({ user, isLoggedIn: true }) : null
+
   clearUser = () => this.setState({ user: null });
 
   render() {
+    // const token = localStorage.getItem('token');
+    // console.log(token)
     const { user, items } = this.state;
     return (
       <div className="container-landing">
@@ -68,6 +81,7 @@ export default class Container extends Component {
             editItem={this.editItem}
             destroyItem={this.destroyItem}
             clearUser={this.clearUser}
+          //verifyUser={this.verifyUser}
           />
         </main>
       </div>

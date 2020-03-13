@@ -99,7 +99,7 @@ class Items extends React.Component {
                 onChange={this.handleChange}
               />
               <button
-                type="submit"
+                type="submit" className="search"
               >search</button>
             </form>
             {triedsearch && <p>No search results found.</p>}

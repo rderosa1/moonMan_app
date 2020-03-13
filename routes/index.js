@@ -14,6 +14,7 @@ router.get('/items', controllers.getAllItems)
 router.get('/users', controllers.getAllUsers)
 router.get('/items/:id', controllers.getItemById)
 router.get('/users/:id', controllers.getUserById)
+//router.get('/verify', controllers.verifyUser);
 router.post('/items', restrict, controllers.createItem)
 router.put('/items/:id', restrict, controllers.updateItem)
 router.delete('/items/:id', restrict, controllers.deleteItem)

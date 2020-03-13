@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { changePassword } from '../../services/auth'
-import messages from './AutoDismissAlert/messages'
+import { changePassword } from '../services/auth'
+//import messages from './AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -29,7 +29,7 @@ class ChangePassword extends Component {
       .then(() =>
         alert({
           heading: 'Change Password Success',
-          message: messages.changePasswordSuccess,
+          //message: messages.changePasswordSuccess,
           variant: 'success'
         })
       )
@@ -39,7 +39,7 @@ class ChangePassword extends Component {
         this.setState({ oldPassword: '', newPassword: '' })
         alert({
           heading: 'Change Password Failed',
-          message: messages.changePasswordFailure,
+          //message: messages.changePasswordFailure,
           variant: 'danger'
         })
       })

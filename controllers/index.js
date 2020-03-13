@@ -59,6 +59,28 @@ const signIn = async (req, res) => {
   }
 }
 
+// const verifyUser = (req, res) => {
+//   try {
+//     const token = req.headers.authorization.split(" ")[1];
+//     console.log(token);
+//     const user = jwt.verify(token, TOKEN_KEY);
+//     res.locals = user;
+//     res.json({ user: res.locals });
+//   } catch (e) {
+//     res.status(401).send('Not Authorized');
+//   }
+
+
+// const verifyUser = async (req, res) => {
+//   const token = localStorage.getItem('token');
+//   if (token) {
+//     api.defaults.headers.common.authorization = `Bearer ${token}`;
+//     const res = await api.get('users/verify');
+//     return res.data;
+//   }
+//   return false;
+// }
+
 const changePassword = async (req, res) => { }
 
 const createItem = async (req, res) => {
@@ -172,6 +194,7 @@ const getItemsFromUser = async (req, res) => {
 module.exports = {
   signUp,
   signIn,
+  //verifyUser,
   changePassword,
   createItem,
   getAllItems,

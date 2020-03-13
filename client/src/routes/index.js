@@ -9,13 +9,14 @@ import Item from '../screens/Item'
 import Items from '../screens/Items'
 import ItemCreate from '../screens/ItemCreate'
 import ItemEdit from '../screens/ItemEdit'
+import ChangePassword from '../screens/ChangePassword'
 import AuthenticatedRoute from './AuthenticatedRoute'
-const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem }) => (
+const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem, verifyUser }) => (
   <Switch>
     <Route
       exact
       path="/"
-      render={props => (user ? <Home /> : <Landing {...props} items={items} />)}
+      render={props => (localStorage.getItem('token') ? <Home /> : <Landing {...props} items={items} />)}
     />
     <Route
       path="/sign-in"
@@ -52,6 +53,12 @@ const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyIte
       user={user}
       path="/create"
       render={props => <ItemCreate {...props} addItem={addItem} />}
+    />
+    <AuthenticatedRoute
+      exact
+      path='/change-password'
+      user={user}
+      render={props => <ChangePassword {...props} user={user} />}
     />
   </Switch>
 )
