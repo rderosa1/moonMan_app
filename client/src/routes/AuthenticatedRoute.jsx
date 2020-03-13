@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
 const AuthenticatedRoute = ({
   component: Component,
@@ -9,17 +9,17 @@ const AuthenticatedRoute = ({
   ...rest
 }) => {
   if (user && render) {
-    return <Route {...rest} render={render} />
+    return <Route {...rest} render={render} />;
   } else {
     return (
       <Route
         {...rest}
-        render={(props) =>
-          user ? <Component {...props} /> : <Redirect to='/' />
+        render={props =>
+          user ? <Component {...props} /> : <Redirect to="/" />
         }
       />
-    )
+    );
   }
-}
+};
 
-export default AuthenticatedRoute
+export default AuthenticatedRoute;
