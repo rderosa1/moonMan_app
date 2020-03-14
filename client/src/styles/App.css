@@ -447,9 +447,46 @@ h2 {
     opacity: 1;
   }
 }
-.path {
-  text-decoration: none;
+.items-main {
+  opacity: 0; 
+  animation: title;
+  animation-duration: 3s;
+  animation-delay: 500ms;
+  animation-fill-mode: forwards;
 }
+
+@keyframes title{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity: 1; 
+  }
+}
+
+
+.path {
+  display: flex;
+  justify-content: space-between;
+  width: 14%;
+  text-decoration: none;
+  opacity: 0; 
+  animation: main;
+  animation-duration: 3s;
+  animation-delay: 500ms;
+  animation-fill-mode: forwards;
+}
+@keyframes main {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity: 1; 
+  }
+}
+
+
+
 a {
   text-decoration: none;
   color: white;
@@ -472,6 +509,11 @@ a {
     #b2e0ef
   );
 }
+.annouyance {
+  position: relative;
+    top: 3px;
+}
+
 
 @media (max-width: 600px) {
   body {
@@ -577,4 +619,27 @@ a {
     justify-content: space-around;
     margin: 0; 
   }
+  /* .navbar-logged-in {
+    color: black;
+    display: flex;
+    height: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: space-between;
+     background-color: rgb(75, 37, 97, 0.7); */
+    /* position: sticky;
+    top: 0;
+    text-decoration: none;
+    font-size: 1.0rem;
+  }  */
+  
 }
+/* DO NOT ERASE
+snippet for aligning home button in logged in navbar not landing page.
+margin: -80px;
+    Home Button
+    margin-bottom: 0;
+    position: relative;
+    top: 20px;
+
+*/

@@ -17,7 +17,7 @@ const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyIte
     <Route
       exact
       path="/"
-      render={props => (user ? <Home /> : <Landing {...props} items={items} />)}
+      render={props => (user ? <Home user={user}/> : <Landing {...props} items={items} />)}
     />
     <Route
       path="/sign-in"
