@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { getItemById } from '../services/items';
 
+export default class Wishlist extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            item: {
+                title: '',
+                link: ''
+            },
+            wishlist: []
+            //do we need wishlist here?  the array is passed as props from Container.
+        }
+    }
 
-const WishList = () => (
-    <>
-        <h1>Wishlist goes here</h1>
-    </>
-)
+    async componentDidMount() {
+        try {
+            const item = await getItemById();
+            this.setState({
+                item
+            })
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
-export default Wishlist
+    render() {
+        return (       
+                <h1>Wishlist</h1>
+                             
+        )
+            
+    }
+}

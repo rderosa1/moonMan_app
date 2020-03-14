@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getItems } from "../services/items";
+import { getItemById } from "../services/items";
 import Routes from "../routes";
 import Header from "../screens/Header";
 
@@ -8,7 +9,8 @@ export default class Container extends Component {
     super(props);
     this.state = {
       user: null,
-      items: []
+      items: [],
+      wishlist: []
     };
   }
 
@@ -25,6 +27,34 @@ export default class Container extends Component {
     this.setState({
       items: [item, ...this.state.items]
     });
+
+  addItemToWishlist = async id => {
+    console.log(`I'm clicking the button`)
+    console.log(this.state.wishlist)
+    console.log(this.match)
+    try {
+      const item = await getItemById(id);
+      const { wishlist } = this.state;
+      wishlist.push(item)
+      this.setState({
+        wishlist
+      })
+    } catch (err) {
+      console.error(err);
+    }
+    
+    
+    console.log(this.state.wishlist)
+  }
+
+  // async componentDidMount() {
+  //   try {
+  //     const item = await getItemById(this.props.match.params.id)
+  //     this.setState({ item })
+  //   } catch (err) {
+  //     console.error(err)
+  //   }
+  // }
 
   editItem = (itemId, item) => {
     const updateIndex = this.state.items.findIndex(
@@ -61,6 +91,7 @@ export default class Container extends Component {
         <Header user={user} />
         <main className="container">
           <Routes
+            addItemToWishlist={this.addItemToWishlist}
             items={items}
             user={user}
             setUser={this.setUser}
@@ -68,6 +99,7 @@ export default class Container extends Component {
             editItem={this.editItem}
             destroyItem={this.destroyItem}
             clearUser={this.clearUser}
+            wishlist={this.state.wishlist}
           />
         </main>
       </div>

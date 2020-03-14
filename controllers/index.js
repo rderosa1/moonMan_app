@@ -103,6 +103,14 @@ const getItemById = async (req, res) => {
     }
 }
 
+const getWishlist = async (req, res) => {
+    try {
+        const wishlist = await Item.find()
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 const updateItem = async (req, res) => {
     try {
         const { id } = req.params;
@@ -177,6 +185,7 @@ module.exports = {
     getAllItems,
     getAllUsers,
     getItemById,
+    getWishlist,
     updateItem,
     deleteItem,
     getUserById,

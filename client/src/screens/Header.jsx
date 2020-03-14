@@ -4,10 +4,14 @@ import Navbar from "../components/shared/Navbar.jsx";
 
 const authenticatedOptions = (
   <>
-      <NavLink className='navLink' to="/change-password">Change Password</NavLink>
-
+    <NavLink className='navLink' to="/change-password">
+      Change Password
+      </NavLink>
     <NavLink className="navLink" to="/sign-out">
       Sign Out
+    </NavLink>
+    <NavLink className="navLink" to="/wishlist">
+      Wishlist
     </NavLink>
   </>
 );

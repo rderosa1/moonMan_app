@@ -9,6 +9,7 @@ router.post('/sign-up', controllers.signUp)
 router.post('/sign-in', controllers.signIn)
 router.post('/change-password', controllers.changePassword)
 
+// router.get('/users/wishlist', controllers.)
 router.get('/users/:id/items', controllers.getItemsFromUser)
 router.get('/items', controllers.getAllItems)
 router.get('/users', controllers.getAllUsers)
