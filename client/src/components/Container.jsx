@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { getItems } from "../services/items";
 import { getItemById } from "../services/items";
+import { getUserById } from "../services/auth.js"; //getUser
+import{updateUsersItems} from "../services/auth.js"; //update user's items
 import Routes from "../routes";
 import Header from "../screens/Header";
 
@@ -28,33 +30,45 @@ export default class Container extends Component {
       items: [item, ...this.state.items]
     });
 
-  addItemToWishlist = async id => {
-    console.log(`I'm clicking the button`)
-    console.log(this.state.wishlist)
-    console.log(this.match)
-    try {
-      const item = await getItemById(id);
-      const { wishlist } = this.state;
-      wishlist.push(item)
+    editItem = (itemId, item) => {
+      const updateIndex = this.state.items.findIndex(
+          element => element._id === itemId
+        ),
+        items = [...this.state.items];
+      items[updateIndex] = item;
       this.setState({
-        wishlist
-      })
-    } catch (err) {
-      console.error(err);
-    }
+        items
+      });
+    };
+  
+  addItemToWishlist = async (item) => {
+    // console.log(`I'm clicking the button`)
+    console.log(item)
+    try {
+
+      const usersItems = this.state.user.items
+      // (usersItems.includes(id))
+      //   ? <p>Item already in wishlist</p>
+      //   : 
+      usersItems.push(item)
+      this.setState( prevState => ({
+        user : {...prevState.user, items: usersItems}
+      }))
+      const response = await updateUsersItems(this.state.user._id, this.state.user)
+
+      //this is where we add wishlist items to state each time.
+      const selectedItem = this.state.items.find(el =>
+        el._id=== item
+      )
+      this.setState( prevState => ({
+        wishlist:[...prevState.wishlist, selectedItem]
+      }))
     
-    
-    console.log(this.state.wishlist)
+      } catch (err) {
+        console.error(err);
+      }
   }
 
-  // async componentDidMount() {
-  //   try {
-  //     const item = await getItemById(this.props.match.params.id)
-  //     this.setState({ item })
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }
 
   editItem = (itemId, item) => {
     const updateIndex = this.state.items.findIndex(

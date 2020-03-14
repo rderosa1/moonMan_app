@@ -103,11 +103,20 @@ const getItemById = async (req, res) => {
     }
 }
 
-const getWishlist = async (req, res) => {
+const updateWishlist = async (req, res) => {
     try {
-        const wishlist = await Item.find()
-    } catch (err) {
-        console.error(err)
+        await User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, user) => {
+            if (err) {
+                res.status(500).send(err);
+            }
+            if (!user) {
+                res.status(500).send('User not found!');
+            }
+            return res.status(200).json(user)
+        })
+    } catch (error) {
+        return res.status(500).send(error.message);
+
     }
 }
 
@@ -185,7 +194,7 @@ module.exports = {
     getAllItems,
     getAllUsers,
     getItemById,
-    getWishlist,
+    updateWishlist,
     updateItem,
     deleteItem,
     getUserById,

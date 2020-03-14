@@ -11,15 +11,15 @@ class Items extends React.Component {
     }
   }
 
-  renderButton = (id) => {
+  renderButton = (item) => {
     const { history, match, user, addItemToWishlist } = this.props
     if (user) {
       return (
         <>
-          <button onClick={() => history.push(`${match.url}/${id}`)}>
+          <button onClick={() => history.push(`${match.url}/${item._id}`)}>
             See More
                   </button>
-          <button onClick={() => {addItemToWishlist(id)}}>
+          <button onClick={() => {addItemToWishlist(item._id)}}>
             Add to Wishlist
           </button>
         </>
@@ -36,7 +36,7 @@ class Items extends React.Component {
         return (
           <div className="item" key={item._id}>
             <h4>{item.title}</h4>
-            {this.renderButton(item._id)}
+            {this.renderButton(item)}
           </div>
         )
       })

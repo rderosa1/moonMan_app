@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getItemById } from '../services/items';
 
-export default class Wishlist extends Component {
+class Wishlist extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -15,21 +15,63 @@ export default class Wishlist extends Component {
     }
 
     async componentDidMount() {
+        this.wishList()
         try {
-            const item = await getItemById();
-            this.setState({
-                item
-            })
-        } catch (err) {
-            console.error(err);
+            
+        } catch (error) {
+            
         }
     }
 
-    render() {
-        return (       
-                <h1>Wishlist</h1>
-                             
-        )
+    wishList = async () => {  
+        this.props.user.items.map(async(wishitem, index) => {
+            try {
+            const wishItem = await getItemById(wishitem);
+              console.log(wishItem)
+              this.setState(prevState=>({ wishlist : [...prevState.wishlist, wishItem ]}));
+            } catch (err) { 
+              console.error(err);
+            }
             
+        })
+    }
+
+    render() {
+        console.log(this.props.user.items[0])
+        return (
+            <div>
+                <h1>Wishlist</h1>
+                <div id="wishlist-display">
+                {this.state.wishlist.length >0 && this.state.wishlist.map((wishItem)=> {
+                    return(
+                        <div className="wishitem-info">
+                 <h3>{wishItem.title}</h3>
+                <h3>{wishItem.link}</h3>
+             </div>
+                    )
+                })}
+            </div>
+            </div>
+            )
+                {/* <ul>
+                    {this.props.user.items.map((wish) => {
+                        try {
+                            const wishItems = getItemById(wish);
+                          console.log(wishItems)
+                          this.setState({ wishlist : wishItems });
+                        } catch (err) { 
+                          console.error(err);
+                        }
+                        <li>
+                        {wish.title}
+                        </li>
+                    })}
+
+                    
+                </ul> */}
+            {/* </div> */}
+        
     }
 }
+
+export default Wishlist
