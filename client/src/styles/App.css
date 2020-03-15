@@ -13,6 +13,13 @@ body {
   height: 100%;
   height: 100vh;
 }
+canvas {
+  display: block;
+  position: absolute;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 
 button {
   cursor: pointer;
@@ -21,6 +28,7 @@ button {
   border-radius: 3px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
+  max-width: fit-content;
 }
 button:hover {
   border-radius: 60%;
@@ -38,6 +46,9 @@ button:hover {
   justify-content: space-between;
   position: sticky;
   top: 0;
+  /* background-image: url("./white-clouds-and-blue-sky-3608311.jpg");    */
+  transform: skewY(-3deg);
+  transform-origin: top left;
 }
 
 .navbar .nav .links a,
@@ -101,6 +112,8 @@ button:hover {
   border-radius: 6px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 2s ease;
+  background-color: rgb(3,30,63,0.7);
+  color: rgb(129,190,249);
 }
 
 .form-container .danger {
@@ -117,6 +130,7 @@ button:hover {
   justify-content: center;
   margin: auto;
   width: 80%;
+  position: sticky; 
 }
 
 .form-container form input {
@@ -152,10 +166,15 @@ button:hover {
 
 .form-container form a {
   margin: auto;
+  position: absolute;
 }
 
 .form-container form label {
   margin-top: 0.6em;
+}
+label {
+  font-weight: 600;
+    font-size: 18px;
 }
 
 .layout {
@@ -231,19 +250,19 @@ button:hover {
   border: 2px solid #81b9bf;
   text-align: center;
   padding: 1em;
-  border-radius: 3px;
+  border-radius: 20%;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   min-width: 300px;
-  transition-property: background, rotateX;
+
+  /* transition-property: background;
   transition-duration: 1s;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out; */
 }
-.item:hover {
+/* .item:hover {
   background: grey;
-  border-radius: 50%;
-}
+} */
 
 .item .buttons {
   margin-top: 1em;
@@ -280,7 +299,9 @@ button:hover {
 .item-container .item {
   min-width: 200px;
   min-height: 100px;
-  background-color: white;
+  background-color: #111111;
+  color: white;
+  border: white 1px solid;
 }
 
 .item-container .item button {
@@ -389,8 +410,18 @@ h2 {
   justify-content: center;
 }
 .container-landing {
-  background: url("https://i.imgur.com/R6RIwtQh.jpg") no-repeat center center
-    fixed;
+  /* background: url("https://i.imgur.com/R6RIwtQ.jpg") no-repeat center center
+    fixed;    */
+  /* background: url("./abstract-background-bright-clouds-207130.jpg") no-repeat center center
+    fixed; */
+  /* background: url("./suggestion.jpeg") no-repeat center center
+    fixed; */
+  /* background: url("./saturn.jpeg") no-repeat center center
+    fixed; */
+  /* background: url("./AdobeStock_295226418.jpeg") no-repeat center center
+    fixed; */
+  background: url("./AdobeStock_105677222.jpeg") no-repeat center center fixed;
+
   background-size: cover;
   min-height: 100vh;
   margin: 0 auto;
@@ -407,6 +438,7 @@ h1 {
   color: white;
   text-shadow: 5px 5px 8px grey;
   padding: 10px;
+  letter-spacing: 7px;
 }
 
 .showcase {
@@ -448,29 +480,28 @@ h2 {
   }
 }
 .items-main {
-  opacity: 0; 
+  opacity: 0;
   animation: title;
   animation-duration: 3s;
   animation-delay: 500ms;
   animation-fill-mode: forwards;
 }
 
-@keyframes title{
+@keyframes title {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity: 1; 
+    opacity: 1;
   }
 }
-
 
 .path {
   display: flex;
   justify-content: space-between;
   width: 14%;
   text-decoration: none;
-  opacity: 0; 
+  opacity: 0;
   animation: main;
   animation-duration: 3s;
   animation-delay: 500ms;
@@ -478,14 +509,12 @@ h2 {
 }
 @keyframes main {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity: 1; 
+    opacity: 1;
   }
 }
-
-
 
 a {
   text-decoration: none;
@@ -494,26 +523,42 @@ a {
 }
 .navbar-text {
   color: white;
+  font-size: 30px;
+  font-family: 'Monoton', cursive;
+    color: blue;
+    text-shadow: 0 0 3px #111111, 0 0 5px #0000FF;
 }
 
 .search {
-  border-radius: 30px;
+  border-radius: 25px;
   text-transform: uppercase;
   color: white;
-  background: linear-gradient(
-    #e5f4f9,
-    #b2e0ef,
-    #7fcce5,
-    #0089b7,
-    #0099cc,
-    #b2e0ef
-  );
+  background: linear-gradient(#0099cc, #b2e0ef);
 }
 .annouyance {
   position: relative;
-    top: 3px;
+  top: 3px;
+  display: flex;
+  min-width: -webkit-fill-available;
+  justify-content: space-evenly;
 }
 
+.search-result {
+  box-sizing: border-box;
+  background: rgb(1, 94, 157);
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  padding: 1em;
+  border: 4px solid white;
+  border-style: outset;
+  border-radius: 10%;
+  margin: 0 0 10px 0;
+}
 
 @media (max-width: 600px) {
   body {
@@ -607,7 +652,6 @@ a {
 
   .nav {
     display: flex;
-    
   }
   .navbar-text {
     color: white;
@@ -617,7 +661,7 @@ a {
   .navLink {
     display: flex;
     justify-content: space-around;
-    margin: 0; 
+    margin: 0;
   }
   /* .navbar-logged-in {
     color: black;
@@ -627,12 +671,11 @@ a {
     align-items: center;
     justify-content: space-between;
      background-color: rgb(75, 37, 97, 0.7); */
-    /* position: sticky;
+  /* position: sticky;
     top: 0;
     text-decoration: none;
     font-size: 1.0rem;
   }  */
-  
 }
 /* DO NOT ERASE
 snippet for aligning home button in logged in navbar not landing page.
@@ -643,3 +686,32 @@ margin: -80px;
     top: 20px;
 
 */
+
+.path {
+  min-width: -webkit-fill-available;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  left: 4px;
+  text-decoration: none;
+  opacity: 0;
+  animation: main;
+  animation-duration: 3s;
+  animation-delay: 500ms;
+  animation-fill-mode: forwards;
+}
+@keyframes main {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* border: 1px solid red;
+    min-width: -webkit-fill-available;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    left: 4px; */
