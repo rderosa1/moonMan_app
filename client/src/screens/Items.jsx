@@ -2,8 +2,8 @@ import React from 'react'
 import Layout from '../components/shared/Layout'
 
 class Items extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       triedsearch: false,
       search: '',
@@ -11,13 +11,18 @@ class Items extends React.Component {
     }
   }
 
-  renderButton = (id) => {
-    const { history, match, user } = this.props
+  renderButton = (item) => {
+    const { history, match, user, addItemToWishlist } = this.props
     if (user) {
       return (
-        <button onClick={() => history.push(`${match.url}/${id}`)}>
-          See More
-                </button>
+        <>
+          <button onClick={() => history.push(`${match.url}/${item._id}`)}>
+            See More
+                  </button>
+          <button onClick={() => {addItemToWishlist(item._id)}}>
+            Add to Wishlist
+          </button>
+        </>
       )
     } else {
       return null
@@ -31,7 +36,7 @@ class Items extends React.Component {
         return (
           <div className="item" key={item._id}>
             <h4>{item.title}</h4>
-            {this.renderButton(item._id)}
+            {this.renderButton(item)}
           </div>
         )
       })

@@ -4,13 +4,17 @@ import Navbar from "../components/shared/Navbar.jsx";
 import Layout from "../components/shared/Layout";
 
 const authenticatedOptions = (
-  <div className="annouyance"> 
-      <NavLink className='navLink' to="/change-password">Change Password</NavLink>
-
+  <div className="annouyance">
+    <NavLink className='navLink' to="/change-password">
+      Change Password
+      </NavLink>
     <NavLink className="navLink" to="/sign-out">
       Sign Out
     </NavLink>
-  </div> 
+    <NavLink className="navLink" to="/wishlist">
+      Wishlist
+    </NavLink>
+  </div>
 );
 
 const unauthenticatedOptions = (
