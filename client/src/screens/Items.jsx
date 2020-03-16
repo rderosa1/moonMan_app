@@ -15,14 +15,14 @@ class Items extends React.Component {
     const { history, match, user, addItemToWishlist } = this.props
     if (user) {
       return (
-        <>
+        <div className="time">
           <button onClick={() => history.push(`${match.url}/${item._id}`)}>
             See More
                   </button>
           <button onClick={() => {addItemToWishlist(item._id)}}>
             Add to Wishlist
           </button>
-        </>
+        </div>
       )
     } else {
       return null
