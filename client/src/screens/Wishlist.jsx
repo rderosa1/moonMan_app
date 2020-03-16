@@ -39,8 +39,8 @@ class Wishlist extends Component {
     render() {
         console.log(this.props.user.items[0])
         return (
-            <div>
-                <h1>Wishlist</h1>
+            <div className="wish">
+                <h1 className="wishy-title">Wishlist</h1>
                 <div id="wishlist-display">
                 {this.state.wishlist.length >0 && this.state.wishlist.map((wishItem)=> {
                     return(
