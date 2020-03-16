@@ -10,10 +10,13 @@ export default function App() {
         params={{
           particles: {
             number: {
-              value: 450,
+              value: 400,
               density: {
                 enable: false
               }
+            },
+            color: {
+              value: ["#AAAAAA","#DDDDDD", "#111111"]
             },
             size: {
               value: 4,
@@ -58,6 +61,7 @@ export default function App() {
             }
           }
         }}
+        className="particles"
       />
       <Container />
     </>
