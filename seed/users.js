@@ -13,10 +13,10 @@ const main = async () => {
 
   const users = [
     { username: "rico", email: "ricoderosa@yaho.com", password_digest: "password", items: [bike[0]._id, shoe[0]._id] },
-    { username: "elmo", email: "rgsdhsdha@yaho.com", password_digest: "pass" },
+    { username: "elmo", email: "rgsdhsdha@yaho.com", password_digest: "pass", items: [] },
 
   ]
-
+  console.log(users)
   await User.insertMany(users)
   console.log("Created users!")
 }

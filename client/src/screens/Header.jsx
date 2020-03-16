@@ -11,6 +11,9 @@ const authenticatedOptions = (
     <NavLink className="navLink" to="/sign-out">
       Sign Out
     </NavLink>
+    <NavLink className="navLink" to="/wishlist">
+      Wishlist
+    </NavLink>
   </div>
 );
 

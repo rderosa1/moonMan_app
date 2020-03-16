@@ -20,6 +20,25 @@ export const signInUser = async credentials => {
   }
 }
 
+//get user by id
+export const getUserById = async id => {
+    try {
+      const resp = await api.get(`/users/${id}`)
+      return resp.data.user
+    } catch (error) {
+      throw error
+    }
+}
+  
+export const updateUsersItems = async (userId,user) => {
+    try {
+      const resp = await api.put(`/users/${userId}/items`,user)
+      return resp.data
+    } catch (error) {
+      throw error
+    }
+  }
+
 export const signOut = async user => {
   try {
     await localStorage.clear()

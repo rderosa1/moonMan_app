@@ -125,6 +125,23 @@ const getItemById = async (req, res) => {
   }
 }
 
+const updateWishlist = async (req, res) => {
+  try {
+    await User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, user) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      if (!user) {
+        res.status(500).send('User not found!');
+      }
+      return res.status(200).json(user)
+    })
+  } catch (error) {
+    return res.status(500).send(error.message);
+
+  }
+}
+
 const updateItem = async (req, res) => {
   try {
     const { id } = req.params;
@@ -194,12 +211,12 @@ const getItemsFromUser = async (req, res) => {
 module.exports = {
   signUp,
   signIn,
-  //verifyUser,
   changePassword,
   createItem,
   getAllItems,
   getAllUsers,
   getItemById,
+  updateWishlist,
   updateItem,
   deleteItem,
   getUserById,

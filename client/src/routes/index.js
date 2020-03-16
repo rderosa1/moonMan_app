@@ -9,9 +9,11 @@ import Item from '../screens/Item'
 import Items from '../screens/Items'
 import ItemCreate from '../screens/ItemCreate'
 import ItemEdit from '../screens/ItemEdit'
-import ChangePassword from '../screens/ChangePassword'
+import Wishlist from '../screens/Wishlist'
+import ChangePassword from '../screens/ChangePassword';
+
 import AuthenticatedRoute from './AuthenticatedRoute'
-const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem, verifyUser }) => (
+const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem, addItemToWishlist, wishlist }) => (
   <Switch>
     <Route
       exact
@@ -35,8 +37,17 @@ const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyIte
       exact
       path="/items"
       user={user}
-      render={props => <Items {...props} user={user} items={items} />}
+      render={props => <Items {...props} user={user} items={items} addItemToWishlist={addItemToWishlist} />}
     />
+
+    <AuthenticatedRoute
+      exact
+      path="/wishlist"
+      user={user}
+      render={props => <Wishlist {...props} user={user} addItemToWishlist={addItemToWishlist} wishlist={wishlist} />}
+    />
+
+
     <AuthenticatedRoute
       exact
       path="/items/:id"

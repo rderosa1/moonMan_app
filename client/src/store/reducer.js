@@ -9,11 +9,11 @@ const reducer = (state = initialState, action) => {
     ...state
   }
 
-  switch (action.type) {
-    case '':
-      'bluh'
-      break;
-  }
+  // switch (action.type) {
+  //   case '':
+  //     'bluh'
+  //     break;
+  // }
 
   return newState;
 }
