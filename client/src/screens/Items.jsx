@@ -14,7 +14,6 @@ class Items extends React.Component {
   renderButton = (item) => {
     const { history, match, user, addItemToWishlist } = this.props
     if (user) {
-      console.log(item._id)
       return (
         <>
           <button onClick={() => history.push(`${match.url}/${item._id}`)}>
@@ -31,7 +30,7 @@ class Items extends React.Component {
   }
 
   renderItems = () => {
-    const { items } = this.props
+    const { items } = this.props;
     if (items) {
       return items.map(item => {
         return (
@@ -53,7 +52,6 @@ class Items extends React.Component {
   }
 
   handleSubmit = (event) => {
-
     event.preventDefault()
     const { items } = this.props
     console.log('submitted')
@@ -87,7 +85,6 @@ class Items extends React.Component {
                 </div>
               )
             })}
-
           </div>
         </Layout>
       )

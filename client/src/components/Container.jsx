@@ -18,10 +18,9 @@ export default class Container extends Component {
   }
 
   async componentDidMount() {
-    // const user = await verifyToken();
-    // if (user) {
     try {
       const items = await getItems();
+      console.log(items)
       this.setState({
         items
         //isLoggedIn: true
@@ -38,9 +37,9 @@ export default class Container extends Component {
       items: [item, ...this.state.items]
     });
 
-  editItem = (itemId, item) => {
+  editItem = (item) => {
     const updateIndex = this.state.items.findIndex(
-      element => element._id === itemId
+      element => element._id === item._id
     ),
       items = [...this.state.items];
     items[updateIndex] = item;
@@ -78,17 +77,6 @@ export default class Container extends Component {
   }
 
 
-  editItem = (itemId, item) => {
-    const updateIndex = this.state.items.findIndex(
-      element => element._id === itemId
-    ),
-      items = [...this.state.items];
-    items[updateIndex] = item;
-    this.setState({
-      items
-    });
-  };
-
   destroyItem = item => {
     const destroyIndex = this.state.items.findIndex(
       element => element._id === item._id
@@ -109,8 +97,6 @@ export default class Container extends Component {
   clearUser = () => this.setState({ user: null });
 
   render() {
-    // const token = localStorage.getItem('token');
-    // console.log(token)
     const { user, items } = this.state;
     return (
       <div className="container-landing">
