@@ -262,7 +262,7 @@ i {
   color: white;
 }
 
-.layout footer {
+footer {
   background: #5588be;
   text-align: center;
 }
@@ -306,6 +306,7 @@ span {
 
 .item h4 {
   font-size: 1.2rem;
+  word-break: keep-all;
 }
 
 .item a {
@@ -439,10 +440,10 @@ span {
   margin: 4em auto;
 }
 
-h2 {
+/* h2 {
   display: flex;
   justify-content: center;
-}
+} */
 
 h1 {
   color: white;
@@ -474,7 +475,6 @@ h1 {
 
 h2 {
   color: white;
-  font-size: 36px;
   opacity: 0;
   animation: animal;
   animation-duration: 4s;
@@ -509,8 +509,10 @@ h2 {
 
 .path {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 16%;
+  text-align: center;
+  /* width: 16%; */
   text-decoration: none;
   opacity: 0;
   animation: main;
@@ -532,12 +534,14 @@ a {
   color: white;
   text-shadow: 1px 1px 1px;
   font-size: 22px;
+  padding: 1vh 3vw;
 }
 .navbar-text {
   color: white;
   font-size: 30px;
   font-family: "Monoton", cursive;
   text-shadow: 0 0 3px #111111, 0 0 5px #0000ff;
+  margin: 3vh auto;
 }
 
 .search {
@@ -584,14 +588,16 @@ a {
   top: 80px;
 }
 .wishitem-info {
-  border: 1px solid white;
   background: rgba(24, 35, 49, 0.9);
+  border: 1px solid white;
+  border-radius: 25px;
   box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
-  width: 50%;
+  margin: 0 0 3vh 0;
+  max-width: 65%;
+  padding: 1vh 2vw;
   text-align: center;
-  margin: 0 0 10px 0;
-  border-radius: 25%;
+  word-break: keep-all;
+
 }
 #wishlist-display {
   text-align: -webkit-center;
@@ -628,9 +634,10 @@ p {
   .main {
     background-size: cover;
   }
-  .layout footer {
+  footer {
     background: #075261;
     text-align: center;
+
   }
 
   /* .navbar {
@@ -655,7 +662,7 @@ p {
   }
   .showcase {
     font-family: "Monoton", cursive;
-    font-size: 25px;
+    font-size: 40px;
     text-align: center;
     position: sticky;
     animation: heading;
@@ -728,8 +735,8 @@ p {
   }
   .navbar-text {
     color: white;
-    font-size: 10px;
-    width: 15%;
+    font-size: 30px;
+    /* width: 15%; */
   }
   /* .navbar .nav .links a,
   .navbar span {
@@ -770,17 +777,22 @@ margin: -80px;
 */
 
   .path {
-    min-width: -webkit-fill-available;
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    left: 4px;
-    text-decoration: none;
-    opacity: 0;
     animation: main;
     animation-duration: 3s;
     animation-delay: 500ms;
     animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-content: space-evenly;
+    left: 4px;
+    margin-top: 2vh;
+    min-width: -webkit-fill-available;
+    opacity: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    
   }
   @keyframes main {
     0% {
