@@ -47,14 +47,18 @@ button {
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   max-width: fit-content;
+ 
 }
-button:hover {
-  border-radius: 60%;
+
+
+ button:hover {
+   border-radius: 60%;
   text-shadow: 2px 2px 3px white;
   background-color: white;
   background: white;
-  box-shadow: 10px 10px 20px rgba(255, 255, 255);
-}
+  box-shadow: 10px 10px 20px rgba(255, 255, 255); 
+
+} 
 
 .navbar {
   height: 4em;
@@ -609,7 +613,7 @@ p {
   color: white;
 }
 
-@media (max-width: 700px) {
+@media only screen and (max-width: 425px) {
   body {
     margin: 0;
     padding: 0;
@@ -813,3 +817,10 @@ margin: -80px;
     left: -8px;
   }
 }
+
+@media (max-width: 830px) {
+}
+
+
+
+
