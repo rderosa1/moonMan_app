@@ -20,7 +20,7 @@ class Items extends React.Component {
             See More
                   </button>
           <button onClick={() => {addItemToWishlist(item._id)}}>
-            Add to Wishlist
+            Add to Spaceship
           </button>
         </div>
       )
@@ -82,7 +82,7 @@ class Items extends React.Component {
                 <div className="search-result">
                   <h1>{result.title}</h1>
                   <h2>{result.link}</h2>
-                  {this.renderButton(result._id)}
+                  {this.renderButton(result)}
                 </div>
               )
             })}
