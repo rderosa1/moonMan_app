@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getItemById } from '../services/items';
+import Layout from '../components/shared/Layout'
 
 class Wishlist extends Component {
     constructor(props) {
@@ -17,61 +18,76 @@ class Wishlist extends Component {
     async componentDidMount() {
         this.wishList()
         try {
-            
+
         } catch (error) {
-            
+
         }
     }
 
-    wishList = async () => {  
-        this.props.user.items.map(async(wishitem, index) => {
+
+    wishList = async () => {
+        await Promise.all(this.props.user.items.map(async (wishitem, index) => {
             try {
-            const wishItem = await getItemById(wishitem);
-              console.log(wishItem)
-              this.setState(prevState=>({ wishlist : [...prevState.wishlist, wishItem ]}));
-            } catch (err) { 
-              console.error(err);
+                const wishItem = await getItemById(wishitem);
+                console.log(wishItem)
+                this.setState(prevState => ({ wishlist: [...prevState.wishlist, wishItem] }));
+            } catch (err) {
+                console.error(err);
             }
-            
-        })
+
+        }))
     }
 
+    
+    renderButton = (itemId) => {
+        console.log(itemId)
+        const { history, match, user, deleteItemFromWishlist } = this.props
+        const {wishlist} =this.state
+        if (user) {
+          return (
+            <>
+              <button onClick={() => {deleteItemFromWishlist(itemId); this.removeItem(itemId)}}>
+                Remove Item
+                      </button>
+            </>
+          )
+        } else {
+          return null
+        }
+      }
+
+      removeItem = (itemId) => {
+        const newWishlist = this.state.wishlist.filter((item)=> item._id.toString() !== itemId.toString())
+        this.setState({ wishlist: newWishlist })
+      }  
+
+
     render() {
-        console.log(this.props.user.items[0])
+        // console.log(this.props.user.items[0])
         return (
             <div>
                 <h1>Wishlist</h1>
+                    <Layout>
                 <div id="wishlist-display">
-                {this.state.wishlist.length >0 && this.state.wishlist.map((wishItem)=> {
-                    return(
-                        <div className="wishitem-info">
-                 <h3>{wishItem.title}</h3>
-                <h3>{wishItem.link}</h3>
-             </div>
+                    {this.state.wishlist.length > 0 && this.state.wishlist.map((wishItem) => {
+                        return (
+                                <div className="wishitem-info">
+                                    <div className="wishlist-result">
+                                        <h3>{wishItem.title}</h3>
+                                        <h2>{wishItem.link}</h2>
+                                        {this.renderButton(wishItem._id)}
+                                    </div>
+                                </div>
+                        )
+                    }
                     )
-                })}
-            </div>
-            </div>
-            )
-                {/* <ul>
-                    {this.props.user.items.map((wish) => {
-                        try {
-                            const wishItems = getItemById(wish);
-                          console.log(wishItems)
-                          this.setState({ wishlist : wishItems });
-                        } catch (err) { 
-                          console.error(err);
-                        }
-                        <li>
-                        {wish.title}
-                        </li>
-                    })}
-
-                    
-                </ul> */}
-            {/* </div> */}
-        
-    }
+                }
+                </div>
+                </Layout>
+                </div>
+                )
+            }
+    
 }
 
 export default Wishlist
