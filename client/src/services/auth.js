@@ -39,6 +39,16 @@ export const updateUsersItems = async (userId,user) => {
     }
   }
 
+  export const removeWishlistItem = async (userId, itemId) => {
+    try {
+      const resp = await api.put(`/users/${userId}/items/${itemId}`)
+      return resp.data
+    } catch (error) {
+      throw error
+    }
+  }
+
+
 export const signOut = async user => {
     try {
         await localStorage.clear()

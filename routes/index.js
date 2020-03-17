@@ -11,13 +11,14 @@ router.post('/change-password', controllers.changePassword)
 
 // router.put('/users/wishlist', controllers.updateWishlist)
 router.put('/users/:id/items',restrict, controllers.updateWishlist)
+router.put('/users/:userId/items/:itemId', restrict, controllers.deleteItemFromUser2)
 router.get('/users/:id/items', controllers.getItemsFromUser)
 router.get('/items', controllers.getAllItems)
 router.get('/users', controllers.getAllUsers)
 router.get('/items/:id', controllers.getItemById)
 router.get('/users/:id', controllers.getUserById)
 router.post('/items', restrict, controllers.createItem)
-router.put('/items/:id', restrict, controllers.updateItem)
+router.put('/items/:id', controllers.updateItem)
 router.delete('/items/:id', restrict, controllers.deleteItem)
 
 module.exports = router
