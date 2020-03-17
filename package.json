@@ -26,6 +26,7 @@
     "faker": "^4.1.0",
     "jest": "^25.1.0",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
     "mongoose": "^5.9.0",
     "morgan": "^1.9.1"
   },

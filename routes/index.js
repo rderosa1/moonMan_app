@@ -8,15 +8,15 @@ router.get('/', (req, res) => res.send('This is root!'))
 router.post('/sign-up', controllers.signUp)
 router.post('/sign-in', controllers.signIn)
 router.post('/change-password', controllers.changePassword)
+router.get('/verify', controllers.verifyUser);
 
 // router.put('/users/wishlist', controllers.updateWishlist)
-router.put('/users/:id/items',restrict, controllers.updateWishlist)
+router.put('/users/:id/items', restrict, controllers.updateWishlist)
 router.get('/users/:id/items', controllers.getItemsFromUser)
 router.get('/items', controllers.getAllItems)
 router.get('/users', controllers.getAllUsers)
 router.get('/items/:id', controllers.getItemById)
 router.get('/users/:id', controllers.getUserById)
-//router.get('/verify', controllers.verifyUser);
 router.post('/items', restrict, controllers.createItem)
 router.put('/items/:id', restrict, controllers.updateItem)
 router.delete('/items/:id', restrict, controllers.deleteItem)

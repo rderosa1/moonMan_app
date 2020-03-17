@@ -5,7 +5,7 @@ import { getUserById } from "../services/auth.js"; //getUser
 import { updateUsersItems } from "../services/auth.js"; //update user's items
 import Routes from "../routes";
 import Header from "../screens/Header";
-import { verifyToken } from '../services/auth'
+import { verifyUser } from '../services/auth'
 
 export default class Container extends Component {
   constructor(props) {
@@ -20,11 +20,11 @@ export default class Container extends Component {
   async componentDidMount() {
     try {
       const items = await getItems();
-      console.log(items)
-      this.setState({
-        items
-        //isLoggedIn: true
-      });
+      this.setState({ items });
+      const user = await verifyUser();
+      if (user) {
+        this.setState({ user })
+      }
     }
     catch (err) {
       console.error(err);
@@ -49,20 +49,14 @@ export default class Container extends Component {
   };
 
   addItemToWishlist = async (item) => {
-    // console.log(`I'm clicking the button`)
     console.log(item)
     try {
-
       const usersItems = this.state.user.items
-      // (usersItems.includes(id))
-      //   ? <p>Item already in wishlist</p>
-      //   : 
       usersItems.push(item)
       this.setState(prevState => ({
         user: { ...prevState.user, items: usersItems }
       }))
       const response = await updateUsersItems(this.state.user._id, this.state.user)
-
       //this is where we add wishlist items to state each time.
       const selectedItem = this.state.items.find(el =>
         el._id === item
@@ -70,7 +64,6 @@ export default class Container extends Component {
       this.setState(prevState => ({
         wishlist: [...prevState.wishlist, selectedItem]
       }))
-
     } catch (err) {
       console.error(err);
     }

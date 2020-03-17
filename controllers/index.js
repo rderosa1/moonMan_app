@@ -59,27 +59,20 @@ const signIn = async (req, res) => {
   }
 }
 
-// const verifyUser = (req, res) => {
-//   try {
-//     const token = req.headers.authorization.split(" ")[1];
-//     console.log(token);
-//     const user = jwt.verify(token, TOKEN_KEY);
-//     res.locals = user;
-//     res.json({ user: res.locals });
-//   } catch (e) {
-//     res.status(401).send('Not Authorized');
-//   }
+const verifyUser = (req, res) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    //console.log(`this is the header: ${req.headers.authorization}`)
+    //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNmE1NjA1MjE5ZTA2MGY3NWU5MWFiNyIsInVzZXJuYW1lIjoib25laXJvcyIsImVtYWlsIjoici5jb3NlbnphMzlAZ21haWwuY29tIiwiaWF0IjoxNTg0NDU2MTU4fQ.ijnangrb1k2I7B0Ckd1rNNu8NWh6DE3zHqfzNlrsPUM';
+    console.log(`this is the token from the client: ${token}`);
+    const user = jwt.verify(token, TOKEN_KEY);
+    console.log(`result of JWT verify: `);
+    res.json({ user });
+  } catch (e) {
+    res.status(401).send('Not Authorized');
+  }
+}
 
-
-// const verifyUser = async (req, res) => {
-//   const token = localStorage.getItem('token');
-//   if (token) {
-//     api.defaults.headers.common.authorization = `Bearer ${token}`;
-//     const res = await api.get('users/verify');
-//     return res.data;
-//   }
-//   return false;
-// }
 
 const changePassword = async (req, res) => { }
 
@@ -170,8 +163,6 @@ const deleteItem = async (req, res) => {
   } catch (error) {
     return res.status(500).send(error.message);
   }
-
-
 }
 
 const getUserById = async (req, res) => {
@@ -217,6 +208,7 @@ module.exports = {
   getAllUsers,
   getItemById,
   updateWishlist,
+  verifyUser,
   updateItem,
   deleteItem,
   getUserById,
