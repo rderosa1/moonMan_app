@@ -66,8 +66,9 @@ class Wishlist extends Component {
         // console.log(this.props.user.items[0])
         return (
             <div>
-                <h1>Wishlist</h1>
                     <Layout>
+            <div className="wish">
+                <h1 className="wishy-title">Wishlist</h1>
                 <div id="wishlist-display">
                     {this.state.wishlist.length > 0 && this.state.wishlist.map((wishItem) => {
                         return (
@@ -82,6 +83,7 @@ class Wishlist extends Component {
                     }
                     )
                 }
+                </div>
                 </div>
                 </Layout>
                 </div>

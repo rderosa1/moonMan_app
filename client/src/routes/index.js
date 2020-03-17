@@ -13,12 +13,13 @@ import Wishlist from '../screens/Wishlist'
 
 
 import AuthenticatedRoute from './AuthenticatedRoute'
-const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem, addItemToWishlist, wishlist, deleteItemFromWishlist }) => (
+const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem, addItemToWishlist, wishlist, deleteItemFromWishlist, theme, setTheme}) => (
+
   <Switch>
     <Route
       exact
       path="/"
-      render={props => (user ? <Home user={user}/> : <Landing {...props} items={items} />)}
+      render={props => (user ? <Home user={user} /> : <Landing {...props} items={items} theme={theme} setTheme={setTheme}/>)}
     />
     <Route
       path="/sign-in"

@@ -141,8 +141,20 @@ export default class Container extends Component {
             clearUser={this.clearUser}
             wishlist={this.state.wishlist}
             deleteItemFromWishlist={this.deleteItemFromWishlist}
+            theme={this.props.theme}
+            setTheme={this.props.setTheme}
           />
+           <button className="dark-mode"
+            onClick={e => 
+              this.props.setTheme(
+                this.props.theme.mode === 'dark'
+                  ? { mode: 'light' }
+                  : { mode: 'dark' }
+            )
+            }
+            >Dark Mode</button>
         </main>
+     
       </div>
     );
   }

@@ -13,11 +13,30 @@ body {
   height: 100%;
   height: 100vh;
 }
+.dark-mode{
+  position: absolute;
+  bottom: 100px;  
+}
+.navLink.active{
+  font-size: 22px !important; 
+    position: relative;
+    top: 2px;
+}
 canvas {
   display: block;
   position: absolute;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.container-landing {
+  background: url("./AdobeStock_105677222.jpeg") no-repeat center center fixed;
+
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0 auto;
+  /* background-position: center; */
+  /* background-repeat: no-repeat !important;
+  background-position: 50% 50%; */
 }
 
 button {
@@ -55,8 +74,10 @@ button:hover {
   margin: 0 1em;
   color: #f8f8f8;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 22px;
   transition: all 0.4s ease;
+  position: relative;
+  top: 3px; 
 }
 
 .navbar .nav .links a:hover {
@@ -231,8 +252,12 @@ label {
   align-items: center;
 }
 
+i {
+  color: white;
+}
+
 .layout footer {
-  background: #9e9e9e;
+  background: navy;
   text-align: center;
 }
 
@@ -298,7 +323,7 @@ label {
 .item-container .item {
   min-width: 200px;
   min-height: 100px;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: white 1px solid;
 }
@@ -408,26 +433,8 @@ h2 {
   display: flex;
   justify-content: center;
 }
-.container-landing {
-  /* background: url("https://i.imgur.com/R6RIwtQ.jpg") no-repeat center center
-    fixed;    */
-  /* background: url("./abstract-background-bright-clouds-207130.jpg") no-repeat center center
-    fixed; */
-  /* background: url("./suggestion.jpeg") no-repeat center center
-    fixed; */
-  /* background: url("./saturn.jpeg") no-repeat center center
-    fixed; */
-  /* background: url("./AdobeStock_295226418.jpeg") no-repeat center center
-    fixed; */
-  background: url("./AdobeStock_105677222.jpeg") no-repeat center center fixed;
 
-  background-size: cover;
-  min-height: 100vh;
-  margin: 0 auto;
-  /* background-position: center; */
-  /* background-repeat: no-repeat !important;
-  background-position: 50% 50%; */
-}
+
 
 .main {
   /* background: rgb(115, 107, 177, 0.7); */
@@ -498,7 +505,7 @@ h2 {
 .path {
   display: flex;
   justify-content: space-between;
-  width: 14%;
+  width: 16%;
   text-decoration: none;
   opacity: 0;
   animation: main;
@@ -519,12 +526,12 @@ a {
   text-decoration: none;
   color: white;
   text-shadow: 1px 1px 1px;
+  font-size: 22px;
 }
 .navbar-text {
   color: white;
   font-size: 30px;
   font-family: "Monoton", cursive;
-  color: blue;
   text-shadow: 0 0 3px #111111, 0 0 5px #0000ff;
 }
 
@@ -544,19 +551,48 @@ a {
 
 .search-result {
   box-sizing: border-box;
-  background: rgb(1, 94, 157);
+  background: rgb(0, 0, 0, 0.7);
   color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   width: 80%;
   max-width: 700px;
   text-align: center;
   padding: 1em;
-  border: 4px solid white;
+  border: 1px solid white;
   border-style: outset;
-  border-radius: 10%;
+  border-radius: 20%;
   margin: 0 0 10px 0;
+  position: relative;
+  left: 34px;
+}
+.time {
+  display: flex;
+  justify-content: space-around;
+}
+.wishitem-info {
+  border: 1px solid white;
+  background: rgb(0, 0, 0, 0.7);
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 25%;
+  text-align: center;
+  margin: 0 0 10px 0;
+  border-radius: 20%;
+}
+#wishlist-display {
+  text-align: -webkit-center;
+}
+
+.wishy-title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+h3 {
+  color: white;
 }
 
 @media (max-width: 600px) {
@@ -668,7 +704,6 @@ a {
     transition: all 0.4s ease;
   } */
 
-
   .navLink {
     display: flex;
     justify-content: space-around;
@@ -724,15 +759,15 @@ margin: -80px;
     margin: 0;
     height: 100%;
   }
-/* .particles {
+  /* .particles {
 
 } */
 
-.navbar {
- font-size: 14px;
-}
-.navbar .nav .links a,
-.navbar span {
-  font-size: 14px;
-}
+  .navbar {
+    font-size: 14px;
+  }
+  .navbar .nav .links a,
+  .navbar span {
+    font-size: 14px;
+  }
 }
