@@ -13,14 +13,14 @@ body {
   height: 100%;
   height: 100vh;
 }
-.dark-mode{
+.dark-mode {
   position: absolute;
-  bottom: 100px;  
+  bottom: 50px;
 }
-.navLink.active{
-  font-size: 22px !important; 
-    position: relative;
-    top: 2px;
+.navLink.active {
+  font-size: 22px !important;
+  position: relative;
+  top: 2px;
 }
 canvas {
   display: block;
@@ -77,7 +77,7 @@ button:hover {
   font-size: 22px;
   transition: all 0.4s ease;
   position: relative;
-  top: 3px; 
+  top: 3px;
 }
 
 .navbar .nav .links a:hover {
@@ -433,8 +433,6 @@ h2 {
   display: flex;
   justify-content: center;
 }
-
-
 
 .main {
   /* background: rgb(115, 107, 177, 0.7); */
