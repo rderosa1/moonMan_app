@@ -11,13 +11,15 @@ import ItemCreate from '../screens/ItemCreate'
 import ItemEdit from '../screens/ItemEdit'
 import Wishlist from '../screens/Wishlist'
 
+
 import AuthenticatedRoute from './AuthenticatedRoute'
-const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem, addItemToWishlist, wishlist }) => (
+const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyItem, addItemToWishlist, wishlist, deleteItemFromWishlist, theme, setTheme}) => (
+
   <Switch>
     <Route
       exact
       path="/"
-      render={props => (user ? <Home user={user}/> : <Landing {...props} items={items} />)}
+      render={props => (user ? <Home user={user} /> : <Landing {...props} items={items} theme={theme} setTheme={setTheme}/>)}
     />
     <Route
       path="/sign-in"
@@ -43,9 +45,8 @@ const Routes = ({ user, items, setUser, clearUser, addItem, editItem, destroyIte
       exact
       path="/wishlist"
       user={user}
-      render={props => <Wishlist {...props} user={user} addItemToWishlist={addItemToWishlist} wishlist={wishlist} />}
-    />
-
+      render={props => <Wishlist {...props} user={user} addItemToWishlist={addItemToWishlist}wishlist={wishlist} deleteItemFromWishlist={deleteItemFromWishlist}/>}
+      />
 
     <AuthenticatedRoute
       exact
