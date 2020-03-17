@@ -47,25 +47,23 @@ Features of moonMan include:
 #### Bug Fixes
 
 - Stay loggedin if page is refreshed.
-- fix itemCreate (you have to refresh page/log out and back in to see it)
-- fix itemDelete (you have to refresh page/log out and back in to see it)
+- Fix creating a new item (you have to refresh page/log out and back in to see the new item)
+- Fix editing an item (you have to refresh page/log out and back in to see the edits)
 - Updating design to be mobile-centric (responsive)
 
 #### Current working features
 
 - User Auth(Sign in/Sign up/Auth view)
 - Item display
-- Update Item
+- Update an item on backend (shows in db)
+- Create an item on backend (shows in db)
 
 #### New Features
 
-- User Auth(Login/Register)
-  - Stay logged in if page is refreshed
 - Wishlist functionality-
   - User creates a wishlist
   - User adds items to wishlist
   - User deletes items from wishlist
-  - User edits items on wishlist
   - Homepage shows wishlist
 - Search functionality
   - Includes a search bar
@@ -96,7 +94,8 @@ Container
 
 FrontEnd:
 
-- React/React Router
+- react/react router
+- react styled themes
 - axios
 - cors
 - bcrypt
@@ -105,7 +104,7 @@ FrontEnd:
 
 Backend:
 
-- Faker
+- Faker (we still using this?)
 - MongoDB/Mongoose
 - Express
 - Morgan
