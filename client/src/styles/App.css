@@ -13,11 +13,30 @@ body {
   height: 100%;
   height: 100vh;
 }
+.dark-mode{
+  position: absolute;
+  bottom: 100px;  
+}
+.navLink.active{
+  font-size: 22px !important; 
+    position: relative;
+    top: 2px;
+}
 canvas {
   display: block;
   position: absolute;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.container-landing {
+  background: url("./AdobeStock_105677222.jpeg") no-repeat center center fixed;
+
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0 auto;
+  /* background-position: center; */
+  /* background-repeat: no-repeat !important;
+  background-position: 50% 50%; */
 }
 
 button {
@@ -55,8 +74,10 @@ button:hover {
   margin: 0 1em;
   color: #f8f8f8;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 22px;
   transition: all 0.4s ease;
+  position: relative;
+  top: 3px; 
 }
 
 .navbar .nav .links a:hover {
@@ -412,26 +433,8 @@ h2 {
   display: flex;
   justify-content: center;
 }
-.container-landing {
-  /* background: url("https://i.imgur.com/R6RIwtQ.jpg") no-repeat center center
-    fixed;    */
-  /* background: url("./abstract-background-bright-clouds-207130.jpg") no-repeat center center
-    fixed; */
-  /* background: url("./suggestion.jpeg") no-repeat center center
-    fixed; */
-  /* background: url("./saturn.jpeg") no-repeat center center
-    fixed; */
-  /* background: url("./AdobeStock_295226418.jpeg") no-repeat center center
-    fixed; */
-  background: url("./AdobeStock_105677222.jpeg") no-repeat center center fixed;
 
-  background-size: cover;
-  min-height: 100vh;
-  margin: 0 auto;
-  /* background-position: center; */
-  /* background-repeat: no-repeat !important;
-  background-position: 50% 50%; */
-}
+
 
 .main {
   /* background: rgb(115, 107, 177, 0.7); */
