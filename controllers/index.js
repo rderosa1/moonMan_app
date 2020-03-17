@@ -143,7 +143,8 @@ const updateWishlist = async (req, res) => {
         //loop through users items and filter the item with the item id - assign to variable
         //filter returns new array - afterwards, call update with the new array
         const user = await User.findById(req.params.userId)
-        console.log(user)
+       console.log(user)
+       console.log(user.items)
         const newWishlist = user.items.filter((item)=> item.toString() !== req.params.itemId.toString())
         user.items = newWishlist
         console.log(newWishlist)
@@ -155,7 +156,7 @@ const updateWishlist = async (req, res) => {
         return res.status(500).send(error.message);
 
      }
-    }
+}
 
 const updateItem = async (req, res) => {
     try {

@@ -65,19 +65,19 @@ class Wishlist extends Component {
     render() {
         // console.log(this.props.user.items[0])
         return (
+          <Layout>
             <div>
-                    <Layout>
             <div className="wish">
-                <h1 className="wishy-title">Wishlist</h1>
+                <h1 className="wishy-title">Spaceship</h1>
                 <div id="wishlist-display">
                     {this.state.wishlist.length > 0 && this.state.wishlist.map((wishItem) => {
                         return (
                                 <div className="wishitem-info">
-                                    <div className="wishlist-result">
+                                    {/* <div className="wishlist-result"> */}
                                         <h3>{wishItem.title}</h3>
                                         <h2>{wishItem.link}</h2>
                                         {this.renderButton(wishItem._id)}
-                                    </div>
+                                    {/* </div> */}
                                 </div>
                         )
                     }
@@ -85,8 +85,8 @@ class Wishlist extends Component {
                 }
                 </div>
                 </div>
-                </Layout>
                 </div>
+          </Layout>
                 )
             }
     
