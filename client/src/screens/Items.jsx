@@ -19,8 +19,8 @@ class Items extends React.Component {
           <button onClick={() => history.push(`${match.url}/${item._id}`)}>
             See More
                   </button>
-          <button onClick={() => { addItemToWishlist(item._id) }}>
-            Add to Wishlist
+          <button onClick={() => {addItemToWishlist(item._id)}}>
+            Add to Spaceship
           </button>
         </div>
       )

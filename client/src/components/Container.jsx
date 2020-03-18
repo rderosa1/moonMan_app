@@ -7,6 +7,7 @@ import { removeWishlistItem } from "../services/auth.js";
 import Routes from "../routes";
 import Header from "../screens/Header";
 import { verifyUser } from '../services/auth'
+import Footer from "./shared/Footer";
 
 export default class Container extends Component {
   constructor(props) {
@@ -38,9 +39,10 @@ export default class Container extends Component {
       items: [item, ...this.state.items]
     });
 
-  editItem = (item) => {
+
+  editItem = (itemId, item) => {
     const updateIndex = this.state.items.findIndex(
-      element => element._id === item._id
+      element => element._id === itemId
     ),
       items = [...this.state.items];
     items[updateIndex] = item;
@@ -156,7 +158,6 @@ export default class Container extends Component {
             }
           >Dark Mode</button>
         </main>
-
       </div>
     );
   }

@@ -155,28 +155,8 @@ const updateWishlist = async (req, res) => {
   }
 }
 
-const deleteItemFromUser = async (req, res) => {
-  try {
-    await User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, user) => {
-      if (err) {
-        res.status(500).send(err);
-      }
-      if (!user) {
-        res.status(500).send('User not found!');
-      }
-      return res.status(200).json(user)
-    })
-  } catch (error) {
-    return res.status(500).send(error.message);
-  }
-}
-
 const deleteItemFromUser2 = async (req, res) => {
   try {
-    // console.log(req.body)
-    //req.body, itemId inside it
-    //loop through users items and filter the item with the item id - assign to variable
-    //filter returns new array - afterwards, call update with the new array
     const user = await User.findById(req.params.userId)
     console.log(user)
     const newWishlist = user.items.filter((item) => item.toString() !== req.params.itemId.toString())
@@ -190,7 +170,9 @@ const deleteItemFromUser2 = async (req, res) => {
     return res.status(500).send(error.message);
 
   }
+ 
 }
+
 
 const updateItem = async (req, res) => {
   try {
@@ -270,6 +252,5 @@ module.exports = {
   deleteItem,
   getUserById,
   getItemsFromUser,
-  deleteItemFromUser,
   deleteItemFromUser2
 }
