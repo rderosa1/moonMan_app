@@ -107,19 +107,19 @@ Container
 
 FrontEnd:
 
-- react/react router
-- react styled themes
 - axios
-- cors
 - bcrypt
 - body-parser
+- cors
 - particles.js from https://vincentgarreau.com/particles.js/
+- react/react router
+- react styled themes
+- styled-components
 
 Backend:
 
-- faker (we still using this?)
-- mongoDB/mongoose
 - express
+- mongoDB/mongoose
 - morgan
 
 Testing:
