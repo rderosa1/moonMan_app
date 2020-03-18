@@ -4,7 +4,6 @@ import Navbar from "../components/shared/Navbar.jsx";
 import Layout from "../components/shared/Layout";
 
 const authenticatedOptions=(
-  // <div className="annouyance">
   <>
     <NavLink className='navLink' to="/change-password">
       Change Password
@@ -19,7 +18,6 @@ const authenticatedOptions=(
       <span className="spaceship-header">Spaceship</span>
       
     </NavLink>
-  {/* // </div> */}
   </>
 );
 
@@ -44,7 +42,6 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar user={user}>
-    {/* {user && <span className="navbar-text">Welcome, {user.username}</span>}  */}
     <div className="nav">
       {alwaysOptions}
       {user ? authenticatedOptions : unauthenticatedOptions}

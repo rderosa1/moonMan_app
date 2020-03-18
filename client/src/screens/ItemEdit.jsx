@@ -38,11 +38,8 @@ class ItemEdit extends Component {
   handleSubmit = async event => {
     event.preventDefault()
     const res = await updateItem(this.props.match.params.id, { ...this.state.item })
-    //.then(() => {
     this.setState({ updated: true });
-    // })
 
-    // .catch(console.error)
     const { updated } = this.state;
     if (updated) {
       this.props.editItem(res._id, res)
