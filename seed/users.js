@@ -7,12 +7,12 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 //const faker = require('faker')
 
 const main = async () => {
-  const bike = await Item.find({ title: 'bike' })
-  const shoe = await Item.find({ title: 'shoe' })
-  console.log(bike)
+  const HyperspaceEngine=await Item.find({ title: 'Hyperspace Engine'})
+  const EscapePods=await Item.find({ title: 'Escape Pods'})
+  
 
   const users = [
-    { username: "rico", email: "ricoderosa@yaho.com", password_digest: "password", items: [bike[0]._id, shoe[0]._id] },
+    { username: "rico", email: "ricoderosa@yaho.com", password_digest: "password", items: [HyperspaceEngine[0]._id, EscapePods[0]._id] },
     { username: "elmo", email: "rgsdhsdha@yaho.com", password_digest: "pass", items: [] },
 
   ]
