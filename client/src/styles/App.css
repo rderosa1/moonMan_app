@@ -34,9 +34,6 @@ canvas {
   background-size: cover;
   min-height: 100vh;
   margin: 0 auto;
-  /* background-position: center; */
-  /* background-repeat: no-repeat !important;
-  background-position: 50% 50%; */
 }
 
 button {
@@ -56,8 +53,6 @@ button:hover {
   background: white;
   box-shadow: 10px 10px 20px rgba(255, 255, 255);
 }
-.spaceship-header {
-}
 
 .navbar {
   height: 4em;
@@ -68,10 +63,6 @@ button:hover {
   position: sticky;
   top: 0;
   background: #5588be;
-
-  /* background-image: url("./white-clouds-and-blue-sky-3608311.jpg");    */
-  /* transform: skewY(-3deg);
-  transform-origin: top left;  */
 }
 
 .navbar .nav .links a,
@@ -101,7 +92,6 @@ button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   align-items: center;
   justify-content: space-between;
-  /* background-color: rgb(75, 37, 97, 0.7); */
   position: sticky;
   top: 0;
   text-decoration: none;
@@ -290,13 +280,8 @@ span {
   flex-direction: column;
   min-width: 250px;
   background: rgba(11, 50, 60, 0.7);
-  /* transition-property: background;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out; */
 }
-/* .item:hover {
-  background: grey;
-} */
+
 
 .item .buttons {
   margin-top: 1em;
@@ -318,13 +303,10 @@ span {
   transition: all 0.4s ease;
   width: auto;
   align-self: flex-start;
-  /* transition-timing-function: ease-in; */
 }
 
 .item a:hover {
   opacity: 0.5;
-  /* border-radius: 50%;
-  transform: rotateY(180deg); */
 }
 
 .item a::before {
@@ -373,7 +355,6 @@ span {
 }
 
 .alert {
-  /* background: #ef9a9a; */
   width: 400px;
   height: 200px;
   border-radius: 3px;
@@ -439,11 +420,6 @@ span {
   width: 80%;
   margin: 4em auto;
 }
-
-/* h2 {
-  display: flex;
-  justify-content: center;
-} */
 
 h1 {
   color: white;
@@ -683,10 +659,7 @@ p {
     padding: 0;
     font-family: "Montserrat";
     overflow: scroll;
-    /* height: 100%;
-    width: 100vw; */
     background-size: cover;
-    /* position: fixed; */
   }
 
   .spaceship-header{
@@ -793,29 +766,6 @@ p {
     justify-content: space-around;
     margin: 0;
   }
-  /* .navbar-logged-in {
-    color: black;
-    display: flex;
-    height: 60px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    align-items: center;
-    justify-content: space-between;
-     background-color: rgb(75, 37, 97, 0.7); */
-  /* position: sticky;
-    top: 0;
-    text-decoration: none;
-    font-size: 1.0rem;
-  }  */
-
-  /* DO NOT ERASE
-snippet for aligning home button in logged in navbar not landing page.
-margin: -80px;
-    Home Button
-    margin-bottom: 0;
-    position: relative;
-    top: 20px;
-
-*/
 
   .path {
     animation: main;

@@ -7,7 +7,6 @@ module.exports = (req, res, next) => {
         res.locals.user = data
         next()
     } catch (error) {
-        // console.log(error)
         res.status(403).send('Unauthorized')
     }
 }
