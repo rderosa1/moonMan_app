@@ -70,11 +70,9 @@ class Wishlist extends Component {
               {this.state.wishlist.length > 0 && this.state.wishlist.map((wishItem) => {
                 return (
                   <div className="wishitem-info">
-                    {/* <div className="wishlist-result"> */}
                     <h3>{wishItem.title}</h3>
                     <h2>{wishItem.link}</h2>
                     {this.renderButton(wishItem._id)}
-                    {/* </div> */}
                   </div>
                 )
               })

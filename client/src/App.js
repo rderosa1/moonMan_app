@@ -76,16 +76,6 @@ export default function App() {
             className="particles"
           />
           <Container theme={theme} setTheme={setTheme} />
-
-          {/* <button className="dark-mode"
-            onClick={e => 
-              setTheme(
-                theme.mode === 'dark'
-                  ? { mode: 'light' }
-                  : { mode: 'dark' }
-            )
-            }
-            >Dark Mode</button> */}
         </>
       </ThemeProvider>
     </>
