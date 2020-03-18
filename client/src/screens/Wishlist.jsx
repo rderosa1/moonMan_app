@@ -11,7 +11,6 @@ class Wishlist extends Component {
         link: ''
       },
       wishlist: []
-      //do we need wishlist here?  the array is passed as props from Container.
     }
   }
 
@@ -29,13 +28,11 @@ class Wishlist extends Component {
     await Promise.all(this.props.user.items.map(async (wishitem, index) => {
       try {
         const wishItem = await getItemById(wishitem);
-        // console.log(wishItem)
-
+        console.log(wishItem)
         this.setState(prevState => ({ wishlist: [...prevState.wishlist, wishItem] }));
       } catch (err) {
         console.error(err);
       }
-
     }))
   }
 
@@ -59,13 +56,11 @@ class Wishlist extends Component {
 
   removeItem = (itemId) => {
     const newWishlist = this.state.wishlist.filter((item) => item._id.toString() !== itemId.toString())
-    
-    this.setState({ wishlist: newWishlist })
+        this.setState({ wishlist: newWishlist })
   }
 
 
   render() {
-    // console.log(this.props.user.items[0])
     return (
       <Layout>
         <div>
@@ -90,7 +85,7 @@ class Wishlist extends Component {
       </Layout>
     )
   }
-
 }
+
 
 export default Wishlist

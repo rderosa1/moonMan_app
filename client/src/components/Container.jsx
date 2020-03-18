@@ -6,6 +6,7 @@ import { updateUsersItems } from "../services/auth.js"; //update user's items
 import { removeWishlistItem } from "../services/auth.js";
 import Routes from "../routes";
 import Header from "../screens/Header";
+import { verifyUser } from '../services/auth'
 import Footer from "./shared/Footer";
 
 export default class Container extends Component {
@@ -22,15 +23,22 @@ export default class Container extends Component {
     try {
       const items = await getItems();
       this.setState({ items });
-    } catch (err) {
+      const user = await verifyUser();
+      if (user) {
+        this.setState({ user })
+      }
+    }
+    catch (err) {
       console.error(err);
     }
   }
+
 
   addItem = item =>
     this.setState({
       items: [item, ...this.state.items]
     });
+
 
   editItem = (itemId, item) => {
     const updateIndex = this.state.items.findIndex(
@@ -44,20 +52,14 @@ export default class Container extends Component {
   };
 
   addItemToWishlist = async (item) => {
-    // console.log(`I'm clicking the button`)
     console.log(item)
     try {
-
       const usersItems = this.state.user.items
-      // (usersItems.includes(id))
-      //   ? <p>Item already in wishlist</p>
-      //   : 
       usersItems.push(item)
       this.setState(prevState => ({
         user: { ...prevState.user, items: usersItems }
       }))
       const response = await updateUsersItems(this.state.user._id, this.state.user)
-
       //this is where we add wishlist items to state each time.
       const selectedItem = this.state.items.find(el =>
         el._id === item
@@ -65,7 +67,6 @@ export default class Container extends Component {
       this.setState(prevState => ({
         wishlist: [...prevState.wishlist, selectedItem]
       }))
-
     } catch (err) {
       console.error(err);
     }
@@ -123,6 +124,8 @@ export default class Container extends Component {
 
   setUser = user => this.setState({ user });
 
+  //verifyUser = user => (localStorage.getItem('token')) ? this.setState({ user, isLoggedIn: true }) : null
+
   clearUser = () => this.setState({ user: null });
 
   render() {
@@ -155,7 +158,6 @@ export default class Container extends Component {
             }
           >Dark Mode</button>
         </main>
-        {/* <Footer/> */}
       </div>
     );
   }

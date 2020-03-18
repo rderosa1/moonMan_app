@@ -21,8 +21,8 @@ const ItemForm = ({
         <label>Description</label>
         <input
           placeholder='http://acoolitem.com'
-          value={item.link}
-          name='link'
+          value={item.description}
+          name='description'
           required
           onChange={handleChange}
         />

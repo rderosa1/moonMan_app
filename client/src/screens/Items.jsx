@@ -30,7 +30,7 @@ class Items extends React.Component {
   }
 
   renderItems = () => {
-    const { items } = this.props
+    const { items } = this.props;
     if (items) {
       return items.map(item => {
         return (
@@ -52,7 +52,6 @@ class Items extends React.Component {
   }
 
   handleSubmit = (event) => {
-
     event.preventDefault()
     const { items } = this.props
     console.log('submitted')
@@ -62,7 +61,7 @@ class Items extends React.Component {
         const { search } = this.state
         return title.includes(search.toLowerCase())
       })
-      
+
       this.setState({
         triedsearch: true,
         searchresult: result
@@ -86,7 +85,6 @@ class Items extends React.Component {
                 </div>
               )
             })}
-
           </div>
         </Layout>
       )

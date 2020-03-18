@@ -530,6 +530,7 @@ h2 {
   }
 }
 
+
 a {
   text-decoration: none;
   color: white;
@@ -544,6 +545,11 @@ a {
   font-family: "Monoton", cursive;
   text-shadow: 0 0 3px #111111, 0 0 5px #0000ff;
   margin: 3vh auto;
+}
+
+.wormz {
+  position: absolute;
+  padding-top: 20vh;
 }
 
 .search {
