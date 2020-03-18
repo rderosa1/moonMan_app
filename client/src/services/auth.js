@@ -61,7 +61,7 @@ export const signOut = async user => {
 export const changePassword = async (passwords, user) => {
   try {
     console.log(user)
-    const resp = await api.post(`/change-password/${user.id.toString()}`, passwords)
+    const resp = await api.post(`/change-password/${user.id}`, passwords)
     localStorage.setItem('token', resp.data.token)
     return resp.data
   } catch (error) {
