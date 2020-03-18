@@ -13,7 +13,11 @@ const authenticatedOptions=(
       Sign Out
     </NavLink>
     <NavLink className="navLink" to="/wishlist">
-      Spaceship 
+        <span className="rocket-icon">
+        <i className="fas fa-rocket fa-1x"></i> 
+        </span>
+      <span className="spaceship-header">Spaceship</span>
+      
     </NavLink>
   {/* // </div> */}
   </>
