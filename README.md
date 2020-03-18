@@ -54,7 +54,7 @@ Features of moonMan include:
 - Search functionality
   - Includes a search bar
 
-#### MongoDB with mongoose Data Model Design
+### MongoDB with mongoose Data Model Design
 
 moonMan has a normalized one-to-many data model design with document references.  In the user document we are creating a reference to each item document to avoid repetition of the item data inside the user.  This is the foundation of the wishlist feature.
 
