@@ -1,6 +1,6 @@
 # 👾 moonMan 🌖
 
-[moonMan](http://moonman.surge.sh/ "moonMan, never forget to wonder") is a fully functional CRUD app with authentication and authorization. It was designed by our team as part of the Mandalorians winter 2020 Software Engineering Immersive cohort at General Assembly.
+[moonMan](http://moonman.surge.sh/ "moonMan, never forget to wonder") is a fully functional CRUD app with authentication and authorization. It was designed by our team as part of the Mandalorians winter 2020 Software Engineering Immersive cohort at General Assembly.  Our team was shown a very broken brownfield app and charged with numerous bug fixes, new features, and overhauling the design start-to-finish. 
 
 ## moonMan is a web app for people who feel more at home looking up into the stars than they do lounging in their Earthly homes.
 
@@ -37,30 +37,16 @@ With the newly redesigned moonMan app, use the interactive and intuitive interfa
 
 Features of moonMan include:
 
-- Browsing space items
-- Searching space items
-- Adding space items to wishlist
-- CRUD operations
+- User Auth(Sign in/Sign up/Auth view)
+- CRUD Operations
+- Wishlist feature
+- Search feature
 
 ### 🚀 MVP
 
-#### Bug Fixes
-
-- Stay loggedin if page is refreshed.
-- Fix creating a new item (you have to refresh page/log out and back in to see the new item)
-- Fix editing an item (you have to refresh page/log out and back in to see the edits)
-- Updating design to be mobile-centric (responsive)
-
-#### Current working features
-
 - User Auth(Sign in/Sign up/Auth view)
-- Item display
-- Update an item on backend (shows in db)
-- Create an item on backend (shows in db)
-
-#### New Features
-
-- Wishlist functionality-
+- CRUD Operations
+- Wishlist functionality:
   - User creates a wishlist
   - User adds items to wishlist
   - User deletes items from wishlist
@@ -68,12 +54,39 @@ Features of moonMan include:
 - Search functionality
   - Includes a search bar
 
+#### MongoDB with mongoose Data Model Design
+
+moonMan has a normalized one-to-many data model design with document references.  In the user document we are creating a reference to each item document to avoid repetition of the item data inside the user.  This is the foundation of the wishlist feature.
+
+Pros of this model:  
+1. User document stays small, making it efficient to request all users or a specific user. 
+2. Users can have many items without compromising space in the user document. 
+3. If we want the items data we can request it from the items collection based on the item id found in the user document (as you see in our wishlist feature).
+
+Cons of this model: 
+
+If in the future, the client requests to add a feature where intergallactic suppliers could view user data for each of their items, gathering that data would be multiple calls to the db and this could lead to multiple mutable arrays (not DRY).
+
+```
+const User = new Schema(
+  {
+    username: { type: String, required: true },
+    email: { type: String, required: true },
+    password_digest: { type: String, required: true },
+    items: [{ type: Schema.Types.ObjectId, ref: 'items' }]
+
+  },
+  { timestamps: true }
+)
+```
+
+
 ### 🌟 Post-MVP:
 
 - React-Bootstrap Material UI
 
   - Animation effects for certain clicks
-  - Interacting 404 page as well as a loading icon/page
+  - Interactive 404 page as well as a loading icon/page
 
 - Screen for Meteor and Asteroid alerts (asteroid alert api required).
 - Facts section of UFO sightings with suggested items to purchase to prepare.
