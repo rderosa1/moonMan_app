@@ -11,7 +11,7 @@ const ItemForm = ({
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
-          placeholder='A vetted item.'
+          placeholder='item name'
           value={item.title}
           name='title'
           required
@@ -20,9 +20,9 @@ const ItemForm = ({
 
         <label>Description</label>
         <input
-          placeholder='http://acoolitem.com'
-          value={item.description}
-          name='description'
+          placeholder='item description'
+          value={item.link}
+          name='link'
           required
           onChange={handleChange}
         />
