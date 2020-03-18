@@ -20,7 +20,7 @@ class Items extends React.Component {
             See More
                   </button>
           <button onClick={() => {addItemToWishlist(item._id)}}>
-            Add to Spaceship
+          <i className="fas fa-rocket"></i>
           </button>
         </div>
       )
