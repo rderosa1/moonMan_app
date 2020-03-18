@@ -289,7 +289,6 @@ span {
   display: flex;
   flex-direction: column;
   min-width: 250px;
-  height: 250px;
   background: rgba(11, 50, 60, 0.7);
   /* transition-property: background;
   transition-duration: 1s;
@@ -463,6 +462,25 @@ h1 {
   animation-fill-mode: forwards;
 }
 
+.slogan{
+  opacity: 0;
+  animation: jon;
+  animation-duration: 3s;
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+  text-align: center;
+  margin-top: 25vh;
+}
+
+@keyframes jon {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes heading {
   0% {
     top: -150px;
@@ -591,8 +609,7 @@ a {
 }
 .time {
   display: flex;
-  justify-content: space-between;
-  position: relative;
+  justify-content: space-evenly;
   top: 80px;
 }
 .wishitem-info {
@@ -691,6 +708,15 @@ p {
     text-align: center;
     position: sticky;
   }
+  .slogan{
+    opacity: 0;
+    animation: jon;
+    animation-duration: 3s;
+    animation-delay: 1000ms;
+    animation-fill-mode: forwards;
+    text-align: center;
+    margin-top: 35vh;
+  }
 
   .form-container {
     align-self: center;
@@ -712,8 +738,8 @@ p {
   }
 
   .time {
-    position: relative;
     top: -7px;
+    justify-content: space-evenly;
   }
   .item {
     border: 2px solid #81b9bf;
