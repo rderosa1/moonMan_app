@@ -65,7 +65,7 @@ Pros of this model:
 
 Cons of this model: 
 
-If in the future, the client requests to add a feature where intergallactic suppliers could view user data for each of their items, gathering that data would be multiple calls to the db and this could lead to multiple mutable arrays (not DRY).
+If in the future, the client requests to add a feature where intergallactic suppliers could view user data for each of their items, gathering that data would require many calls to the db for a single item(not DRY).
 
 ```
 const User = new Schema(
