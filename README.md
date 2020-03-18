@@ -98,9 +98,9 @@ const User = new Schema(
 
 ```
 Container
-  |__ Wishlist
   |__ Browse items
-     |__ Search
+    |__ Wishlist
+    |__ Search
 ```
 
 ### 📦 Dependencies:
@@ -112,15 +112,15 @@ FrontEnd:
 - axios
 - cors
 - bcrypt
-- Body-Parser
-- Particles.js from https://vincentgarreau.com/particles.js/
+- body-parser
+- particles.js from https://vincentgarreau.com/particles.js/
 
 Backend:
 
-- Faker (we still using this?)
-- MongoDB/Mongoose
-- Express
-- Morgan
+- faker (we still using this?)
+- mongoDB/mongoose
+- express
+- morgan
 
 Testing:
 
