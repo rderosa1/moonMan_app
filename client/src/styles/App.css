@@ -48,12 +48,15 @@ button {
   transition: all 0.3s ease;
   max-width: fit-content;
 }
+
 button:hover {
   border-radius: 60%;
   text-shadow: 2px 2px 3px white;
   background-color: white;
   background: white;
   box-shadow: 10px 10px 20px rgba(255, 255, 255);
+}
+.spaceship-header {
 }
 
 .navbar {
@@ -206,6 +209,7 @@ label {
   height: Calc(100vh - 4em);
 }
 
+
 .layout .content {
   display: flex;
   flex-direction: row;
@@ -256,9 +260,10 @@ label {
 
 i {
   color: white;
+  position: sticky; 
 }
 
-.layout footer {
+footer {
   background: #5588be;
   text-align: center;
 }
@@ -302,6 +307,7 @@ span {
 
 .item h4 {
   font-size: 1.2rem;
+  word-break: keep-all;
 }
 
 .item a {
@@ -435,10 +441,10 @@ span {
   margin: 4em auto;
 }
 
-h2 {
+/* h2 {
   display: flex;
   justify-content: center;
-}
+} */
 
 h1 {
   color: white;
@@ -470,7 +476,6 @@ h1 {
 
 h2 {
   color: white;
-  font-size: 36px;
   opacity: 0;
   animation: animal;
   animation-duration: 4s;
@@ -505,8 +510,10 @@ h2 {
 
 .path {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 16%;
+  text-align: center;
+  /* width: 16%; */
   text-decoration: none;
   opacity: 0;
   animation: main;
@@ -523,17 +530,26 @@ h2 {
   }
 }
 
+
 a {
   text-decoration: none;
   color: white;
   text-shadow: 1px 1px 1px;
   font-size: 22px;
+  padding: 1vh 3vw;
+   
 }
 .navbar-text {
   color: white;
   font-size: 30px;
   font-family: "Monoton", cursive;
   text-shadow: 0 0 3px #111111, 0 0 5px #0000ff;
+  margin: 3vh auto;
+}
+
+.wormz {
+  position: absolute;
+  padding-top: 20vh;
 }
 
 .search {
@@ -580,14 +596,15 @@ a {
   top: 80px;
 }
 .wishitem-info {
-  border: 1px solid white;
   background: rgba(24, 35, 49, 0.9);
+  border: 1px solid white;
+  border-radius: 25px;
   box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
-  width: 50%;
+  margin: 0 0 3vh 0;
+  max-width: 65%;
+  padding: 1vh 2vw;
   text-align: center;
-  margin: 0 0 10px 0;
-  border-radius: 25%;
+  word-break: keep-all;
 }
 #wishlist-display {
   text-align: -webkit-center;
@@ -608,36 +625,55 @@ h4 {
 p {
   color: white;
 }
+@media only screen and (orientation: landscape) and (max-width: 830px) {
+  .dark-mode {
+    margin-left: 290px;
+  }
+  .showcase {
+    animation: heading;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+  }
 
-@media (max-width: 700px) {
+  @keyframes heading {
+    0% {
+      top: -150px;
+    }
+    100% {
+      top: 185px;
+    }
+  }
+  .form-container {
+    max-width: fit-content;
+  }
+
+  .form-container form {
+    width: 60%;
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 425px),
+  (orientation: landscape) and (max-width: 830px) {
   body {
     margin: 0;
     padding: 0;
     font-family: "Montserrat";
     overflow: scroll;
-    height: 100%;
-    width: 100vw;
+    /* height: 100%;
+    width: 100vw; */
     background-size: cover;
-    position: fixed;
+    /* position: fixed; */
   }
 
   .main {
     background-size: cover;
   }
-  .layout footer {
+  footer {
     background: #075261;
     text-align: center;
   }
 
-  /* .navbar {
-    height: 4em;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-  } */
   .dark-mode {
     left: 280px;
   }
@@ -651,21 +687,9 @@ p {
   }
   .showcase {
     font-family: "Monoton", cursive;
-    font-size: 25px;
+    font-size: 40px;
     text-align: center;
     position: sticky;
-    animation: heading;
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes heading {
-    0% {
-      top: -150px;
-    }
-    100% {
-      top: 300px;
-    }
   }
 
   .form-container {
@@ -673,7 +697,7 @@ p {
     padding: 1em;
     width: 80%;
     height: 80%;
-    margin: 4em auto;
+    margin: auto;
     border: 2px solid #b0bec5;
     border-radius: 6px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
@@ -724,8 +748,8 @@ p {
   }
   .navbar-text {
     color: white;
-    font-size: 10px;
-    width: 15%;
+    font-size: 30px;
+    /* width: 15%; */
   }
   /* .navbar .nav .links a,
   .navbar span {
@@ -766,17 +790,21 @@ margin: -80px;
 */
 
   .path {
-    min-width: -webkit-fill-available;
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    left: 4px;
-    text-decoration: none;
-    opacity: 0;
     animation: main;
     animation-duration: 3s;
     animation-delay: 500ms;
     animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-content: space-evenly;
+    left: 4px;
+    margin-top: 2vh;
+    min-width: -webkit-fill-available;
+    opacity: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
   }
   @keyframes main {
     0% {
@@ -796,14 +824,19 @@ margin: -80px;
     font-size: 14px;
     background: #075261;
   }
-  /* .navbar .nav .links a,
-  .navbar span {
-    font-size: 14px;
-  } */
+  .rocket-icon {
+    margin-left: -10px;
+    padding: 0;
+  }
+
   a .navLink {
     width: 20%;
     margin: 0;
   }
+  .spaceship-header {
+    display: none;
+  }
+
   .annouyance {
     position: relative;
     top: 3px;
@@ -811,5 +844,9 @@ margin: -80px;
     justify-content: space-evenly;
     min-width: auto;
     left: -8px;
+  }
+  .navbar .nav .links a,
+  .navbar span {
+    margin: 0;
   }
 }

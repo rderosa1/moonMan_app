@@ -1,6 +1,6 @@
 # 👾 moonMan 🌖
 
-moonMan is a fully functional CRUD app with authentication and authorization. It was designed by our team as part of the Mandalorians winter 2020 Software Engineering Immersive cohort at General Assembly.
+[moonMan](http://moonman.surge.sh/ "moonMan, never forget to wonder") is a fully functional CRUD app with authentication and authorization. It was designed by our team as part of the Mandalorians winter 2020 Software Engineering Immersive cohort at General Assembly.
 
 ## moonMan is a web app for people who feel more at home looking up into the stars than they do lounging in their Earthly homes.
 
@@ -27,7 +27,7 @@ With the newly redesigned moonMan app, use the interactive and intuitive interfa
 
 #### Mobile
 
-<img src="https://github.com/marymacmurray/done4today/blob/develop/mobile-mockup2.png">
+<img src="mobile-mockup3.png">
 
 #### Desktop
 
@@ -47,25 +47,23 @@ Features of moonMan include:
 #### Bug Fixes
 
 - Stay loggedin if page is refreshed.
-- fix itemCreate (you have to refresh page/log out and back in to see it)
-- fix itemDelete (you have to refresh page/log out and back in to see it)
+- Fix creating a new item (you have to refresh page/log out and back in to see the new item)
+- Fix editing an item (you have to refresh page/log out and back in to see the edits)
 - Updating design to be mobile-centric (responsive)
 
 #### Current working features
 
 - User Auth(Sign in/Sign up/Auth view)
 - Item display
-- Update Item
+- Update an item on backend (shows in db)
+- Create an item on backend (shows in db)
 
 #### New Features
 
-- User Auth(Login/Register)
-  - Stay logged in if page is refreshed
 - Wishlist functionality-
   - User creates a wishlist
   - User adds items to wishlist
   - User deletes items from wishlist
-  - User edits items on wishlist
   - Homepage shows wishlist
 - Search functionality
   - Includes a search bar
@@ -96,7 +94,8 @@ Container
 
 FrontEnd:
 
-- React/React Router
+- react/react router
+- react styled themes
 - axios
 - cors
 - bcrypt
@@ -105,7 +104,7 @@ FrontEnd:
 
 Backend:
 
-- Faker
+- Faker (we still using this?)
 - MongoDB/Mongoose
 - Express
 - Morgan

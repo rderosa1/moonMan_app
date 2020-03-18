@@ -20,7 +20,7 @@ class Items extends React.Component {
             See More
                   </button>
           <button onClick={() => {addItemToWishlist(item._id)}}>
-            Add to Wishlist
+            Add to Spaceship
           </button>
         </div>
       )
@@ -30,7 +30,7 @@ class Items extends React.Component {
   }
 
   renderItems = () => {
-    const { items } = this.props
+    const { items } = this.props;
     if (items) {
       return items.map(item => {
         return (
@@ -52,7 +52,6 @@ class Items extends React.Component {
   }
 
   handleSubmit = (event) => {
-
     event.preventDefault()
     const { items } = this.props
     console.log('submitted')
@@ -62,7 +61,7 @@ class Items extends React.Component {
         const { search } = this.state
         return title.includes(search.toLowerCase())
       })
-      
+
       this.setState({
         triedsearch: true,
         searchresult: result
@@ -82,11 +81,10 @@ class Items extends React.Component {
                 <div className="search-result">
                   <h1>{result.title}</h1>
                   <h2>{result.link}</h2>
-                  {this.renderButton(result._id)}
+                  {this.renderButton(result)}
                 </div>
               )
             })}
-
           </div>
         </Layout>
       )

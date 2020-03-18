@@ -52,8 +52,8 @@ class Item extends Component {
           <Link to="/items">
             <span> Back to all items</span>
           </Link>
-          <h4>{item.title}</h4>
-          <p>Link: {item.link}</p>
+          <h4> {item.title}</h4>
+          <p>Description: {item.link}</p>
           <div className="buttons">
             <button className="danger" onClick={this.destroy}>
               Delete Item

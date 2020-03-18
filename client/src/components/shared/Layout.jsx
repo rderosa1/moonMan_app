@@ -13,8 +13,8 @@ const Layout =  props  => (
         {props.user && <span className="navbar-text">Welcome, {props.user.username}</span>}
 
           <div className="path">
-            <NavLink to="/items">Items Here</NavLink>
-            <NavLink to="/create">Create Item</NavLink>
+            <NavLink to="/items">Browse Spaceship Items</NavLink>
+            <NavLink to="/create">Add to Inventory</NavLink>
           </div>
           {props.children}
         </div>

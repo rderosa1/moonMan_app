@@ -11,7 +11,7 @@ class ItemCreate extends Component {
     this.state = {
       item: {
         title: '',
-        link: ''
+        description: ''
       },
       createdItem: null
     }

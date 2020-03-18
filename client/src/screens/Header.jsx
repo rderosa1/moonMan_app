@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import Navbar from "../components/shared/Navbar.jsx";
 import Layout from "../components/shared/Layout";
 
-const authenticatedOptions = (
-  <div className="annouyance">
+const authenticatedOptions=(
+  // <div className="annouyance">
+  <>
     <NavLink className='navLink' to="/change-password">
       Change Password
       </NavLink>
@@ -12,9 +13,14 @@ const authenticatedOptions = (
       Sign Out
     </NavLink>
     <NavLink className="navLink" to="/wishlist">
-      Wishlist
+        <span className="rocket-icon">
+        <i className="fas fa-rocket fa-1x"></i> 
+        </span>
+      <span className="spaceship-header">Spaceship</span>
+      
     </NavLink>
-  </div>
+  {/* // </div> */}
+  </>
 );
 
 const unauthenticatedOptions = (
@@ -38,7 +44,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar user={user}>
-     {/* {user && <span className="navbar-text">Welcome, {user.username}</span>}  */}
+    {/* {user && <span className="navbar-text">Welcome, {user.username}</span>}  */}
     <div className="nav">
       {alwaysOptions}
       {user ? authenticatedOptions : unauthenticatedOptions}
@@ -46,14 +52,3 @@ const Header = ({ user }) => (
   </Navbar>
 )
 export default Header;
-
-
-
-//  const Header = ({ user }) => (
-//    <Navbar user={user}>
-//       {user && <span className="navbar-text">Welcome, {user.username}</span>} 
-//      <div className="nav">
-// //       {alwaysOptions}
-// //       {user ? authenticatedOptions : unauthenticatedOptions}
-// //     </div>
-// //   </Navbar>
