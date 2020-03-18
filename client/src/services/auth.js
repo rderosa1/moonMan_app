@@ -39,14 +39,14 @@ export const updateUsersItems = async (userId, user) => {
   }
 }
 
-  export const removeWishlistItem = async (userId, itemId) => {
-    try {
-      const resp = await api.put(`/users/${userId}/items/${itemId}`)
-      return resp.data
-    } catch (error) {
-      throw error
-    }
+export const removeWishlistItem = async (userId, itemId) => {
+  try {
+    const resp = await api.put(`/users/${userId}/items/${itemId}`)
+    return resp.data
+  } catch (error) {
+    throw error
   }
+}
 
 
 export const signOut = async user => {
@@ -60,7 +60,9 @@ export const signOut = async user => {
 
 export const changePassword = async (passwords, user) => {
   try {
-    const resp = await api.post('/')
+    console.log(user)
+    const resp = await api.post(`/change-password/${user.id.toString()}`, passwords)
+    localStorage.setItem('token', resp.data.token)
     return resp.data
   } catch (error) {
     throw error

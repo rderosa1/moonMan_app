@@ -62,11 +62,7 @@ const signIn = async (req, res) => {
 const verifyUser = (req, res) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    //console.log(`this is the header: ${req.headers.authorization}`)
-    //const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNmE1NjA1MjE5ZTA2MGY3NWU5MWFiNyIsInVzZXJuYW1lIjoib25laXJvcyIsImVtYWlsIjoici5jb3NlbnphMzlAZ21haWwuY29tIiwiaWF0IjoxNTg0NDU2MTU4fQ.ijnangrb1k2I7B0Ckd1rNNu8NWh6DE3zHqfzNlrsPUM';
-    console.log(`this is the token from the client: ${token}`);
     const user = jwt.verify(token, TOKEN_KEY);
-    console.log(`result of JWT verify: `);
     res.json({ user });
   } catch (e) {
     res.status(401).send('Not Authorized');
@@ -74,7 +70,31 @@ const verifyUser = (req, res) => {
 }
 
 
-const changePassword = async (req, res) => { }
+const changePassword = async (req, res) => {
+  try {
+    let user = await User.findById(req.params.id);
+    const { oldPassword, newPassword } = req.body;
+    if (await bcrypt.compare(oldPassword, user.password_digest)) {
+      const password_digest = await bcrypt.hash(newPassword, SALT_ROUNDS)
+      user = await User.findByIdAndUpdate(req.params.id, { password_digest: password_digest }, { new: true })
+      console.log(user);
+      const payload = {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      }
+
+      const token = jwt.sign(payload, TOKEN_KEY)
+      return res.status(201).json({ user, token })
+    }
+  } catch (error) {
+    console.log(
+      'You made it to the change-password controller, but there was an error :('
+    )
+    return res.status(400).json({ error: error.message })
+  }
+}
+
 
 const createItem = async (req, res) => {
   try {

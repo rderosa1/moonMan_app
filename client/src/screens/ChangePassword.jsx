@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { changePassword } from '../services/auth'
-//import messages from './AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -20,37 +19,28 @@ class ChangePassword extends Component {
       [event.target.name]: event.target.value
     })
 
-  onChangePassword = event => {
+  onChangePassword = async event => {
     event.preventDefault()
-
-    const { alert, history, user } = this.props
-
-    changePassword(this.state, user)
+    const { history, user } = this.props
+    await changePassword(this.state, user.user)
       .then(() =>
-        alert({
-          heading: 'Change Password Success',
-          //message: messages.changePasswordSuccess,
-          variant: 'success'
-        })
+        alert(`Your password? Your password. Your password... OH MY GOD, YOUR PASSWORD! IT'S YOUR PASSWORD!!! Oh, yeah, by the way, it's been changed. Congrats on the new password! Is it a boy or a girl? `)
+        // console.log('bananas')
       )
       .then(() => history.push('/'))
       .catch(error => {
         console.error(error)
         this.setState({ oldPassword: '', newPassword: '' })
-        alert({
-          heading: 'Change Password Failed',
-          //message: messages.changePasswordFailure,
-          variant: 'danger'
-        })
+        alert('Your password is... Unchanged')
       })
   }
 
   render() {
     const { oldPassword, newPassword } = this.state
-
+    console.log(this.props)
     return (
       <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <div className="wormz">
           <h3>Change Password</h3>
           <Form onSubmit={this.onChangePassword}>
             <Form.Group controlId="oldPassword">
